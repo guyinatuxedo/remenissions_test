@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import argparse
+
+def getDirectory(files, fileName):
+	for i in files:
+		currentFile = i[0]
+		if currentFile == fileName:
+			return i[1]
+	return False
+
+if __name__ == "__main__":
+	parser = argparse.ArgumentParser(description = "Testing utillity for autopwner")
+	parser.add_argument("-d", metavar='-D', type=str, help="Subdirectory to test challenges", default=None)
+
+	args = parser.parse_args()
+
+	subDirectory = args.d
+
+	currentDirectory = os.getcwd()
+
+	if subDirectory == None:
+		walkDirectory = os.walk(currentDirectory)
+
+	else:
+		walkDirectory = os.walk(currentDirectory + "/" + subDirectory)
+
+	testFiles = []
+	fileNames = []
+
+	for i in walkDirectory:
+		if len(i) == 3:
+			files = i[2]
+			for file in files:
+				if "chall-test" in file:
+					fileName = file
+					fileDir  = i[0]
+					if fileName not in fileNames:
+						fileNames.append(fileName)
+						testFiles.append([fileName, fileDir])
+					else:
+						print("\n\nName Confliction\n\n")
+						print(fileName)
+						print(getDirectory(testFiles, fileName))
+						print(fileDir)
+						sys.exit()
+
+	pwnedTests = []
+	failedTests = []
+
+	for test in testFiles:
+		currentFile = test[0]
+		currentDirectory = test[1]
+		print("\n\nTesting: %s\nFrom: %s\n" % (currentFile, currentDirectory))
+		os.chdir(currentDirectory)
+		output = os.popen('remenissions -b %s' % currentFile).read()
+		if "Exploit Successful:" in output:
+			#print("\n\nSuccessful Test\nFileName: %s\nDirectory %s\n" % (currentFile, currentDirectory))
+			pwnedTests.append([currentFile, currentDirectory])
+		else:
+			failedTests.append([currentFile, currentDirectory])
+			#print("Not Successful Test\nFileName: %s\nDirectory %s\n" % (currentFile, currentDirectory))
+
+	for pwnedTest in pwnedTests:
+		print("Successful Exploit\nTarget: %s\nDirectory: %s\n" % (pwnedTest[0], pwnedTest[1]))
+
+
+	for failedTest in failedTests:
+		print("Not Successful Exploit\nTarget: %s\nDirectory: %s\n" % (failedTest[0], failedTest[1]))

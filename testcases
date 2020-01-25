@@ -4,36 +4,37 @@ current:	10 / 10
 
 0-bof_var:
 
-csaw18_boi					pwned
+csaw18_boi					pwned 
 hackucf_bof1				pwned
-hackucf_bof2				pwned
+hackucf_bof2				pwned 
 hackucf_stack0pt1			pwned
-tamu19_pwn1
+tamu19_pwn1		
+tw17_justdoit				(saving for later)
 
-
-
-
-
-
-tw17_justdoit				BLACKLISTED
-
+protostar_stack0			(not added yet)
 
 1-bof_func
 
-csaw16_warmup 				pwned
-csaw18_getit 				pwned
-hackucf_ret					pwned
-utc_pwn2					pwned
+csaw16_warmup 				pwned 
+csaw18_getit 				pwned 
+hackucf_ret					pwned 
+protostar_stack3
+tamu19_pwn4
 tu17_vulnchat	
+utc_pwn2					pwned 
+
 
 
 2-bof_shellcode
 
 csaw17_pilot
+hackucf_superstack
 tamu19_pwn3 				pwned
 tu18_shellaeasy				pwned
 
 
+
+These two sections are for later
 
 3-bof_static
 

@@ -11,7 +11,7 @@ int main(int argc, char **argv)
   gets(buffer);
 
   if(modified != 0) {
-      printf("you have changed the 'modified' variable\n");
+      puts("flag{g0ttem_b0iz}\n");
   } else {
       printf("Try again?\n");
   }
