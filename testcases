@@ -1,6 +1,6 @@
 target:		100 / 100
 
-current:	10 / 10
+current:	11 / 100
 
 0-bof_var:
 
@@ -8,10 +8,12 @@ csaw18_boi					pwned
 hackucf_bof1				pwned
 hackucf_bof2				pwned 
 hackucf_stack0pt1			pwned
+protostar_stack0			pwned
+
 tamu19_pwn1		
 tw17_justdoit				(saving for later)
 
-protostar_stack0			(not added yet)
+
 
 1-bof_func
 

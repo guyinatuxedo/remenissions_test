@@ -64,8 +64,11 @@ if __name__ == "__main__":
 			#print("Not Successful Test\nFileName: %s\nDirectory %s\n" % (currentFile, currentDirectory))
 
 	for pwnedTest in pwnedTests:
-		print("Successful Exploit\nTarget: %s\nDirectory: %s\n" % (pwnedTest[0], pwnedTest[1]))
+		print("\nSuccessful Exploit\nTarget: %s\nDirectory: %s\n" % (pwnedTest[0], pwnedTest[1]))
 
 
 	for failedTest in failedTests:
-		print("Not Successful Exploit\nTarget: %s\nDirectory: %s\n" % (failedTest[0], failedTest[1]))
+		print("\nNot Successful Exploit\nTarget: %s\nDirectory: %s\n" % (failedTest[0], failedTest[1]))
+
+	print("\nSuccessful Exploits: %d" % len(pwnedTests))
+	print("\nSuccessful Exploits: %d" % len(failedTests))
