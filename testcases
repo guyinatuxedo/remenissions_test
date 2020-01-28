@@ -1,6 +1,6 @@
 target:		100 / 100
 
-current:	11 / 100
+current:	12 / 100
 
 0-bof_var:
 
@@ -20,7 +20,6 @@ tw17_justdoit				(saving for later)
 csaw16_warmup 				pwned 
 csaw18_getit 				pwned 
 hackucf_ret					pwned 
-protostar_stack3
 tamu19_pwn4
 tu17_vulnchat	
 utc_pwn2					pwned 
@@ -35,10 +34,13 @@ tamu19_pwn3 				pwned
 tu18_shellaeasy				pwned
 
 
+3 - indirect_call
+
+protostar_stack3			pwned
 
 These two sections are for later
 
-3-bof_static
+4-bof_static
 
 bkp16_simplecalc
 dcquals16_feedme
@@ -46,7 +48,7 @@ dcquals19_speedrun1
 
 
 
-4-bof_dynamic
+5-bof_dynamic
 
 csaw19_babyboi
 csawquals17_svc

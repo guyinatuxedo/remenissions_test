@@ -1,11 +1,15 @@
-#include <stdlib.h>
-#include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+//#include <string.h>
+//#include <fcntl.h> 
+//#include <unistd.h>
 
 void win()
 {
-  printf("code flow successfully changed\n");
+
+  system("/bin/sh");
+
 }
 
 int main(int argc, char **argv)
@@ -22,4 +26,3 @@ int main(int argc, char **argv)
       fp();
   }
 }
-
