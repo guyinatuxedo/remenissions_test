@@ -1,6 +1,6 @@
 target:		100 / 100
 
-current:	15 / 100
+current:	16 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
 
@@ -25,12 +25,14 @@ hackucf_ret					pwned
 protostar_stack4			pwned
 utc_pwn2					pwned
 pico19_overflow0			pwned 
+tu19_thefirst				pwned
 tamu19_pwn4
 tu17_vulnchat	
-tu19_thefirst
 
 
-
+pico19_overflow0
+hackucf_ret
+utc_pwn2
 
 2-bof_shellcode
 
@@ -62,3 +64,53 @@ csawquals17_svc
 fb19_overfloat
 hs19_storytime
 utc19_shellme
+
+Unit Testing
+
+Challenge Entropy
+
+x86
+x64
+mitgations
+no mitigations
+
+mitgations:	PIE, Stack Canary, RELRO, NX
+0.) Overflow Vars
+1	-	Basic Test
+	-	Overwrite  Three Vars, two equal, one not equal
+	- 	Overwrtite six vars, one equal, one not equal, one less than, one greater than, one less than or equal to, one greater than or equal to
+	-	argv into strcpy overflow, overwrite three vars
+	-	Overwrite three vars, two fake win funcs
+	-	multiple comapres against single value
+	-	nested compares
+	-	multiple inputs not tied to a bug, but are critical
+
+mitgations:	RELRO, NX
+1.) Call Func
+
+1	-	Basic Test
+1	-	Basic Test of Import System
+1	-	Overflow with one var, call func
+1	-	Overflow with three vars, call func
+0	-	Baic test with multiple win funcs
+0	-	Baic test with multiple false win funcs, one win func
+
+0	-	multiple inputs not tied to a bug, but are critical
+
+mitgations:	RELRO, PIE
+2.) Call Shellcode
+	- 	Basic Test
+	-	Basic test with scanf
+	-	Have to place shellcode ahead of stack variable
+	- 	Have to place shellcode between two stack variables
+	-	Have to place shellcode after return address
+	-	multiple inputs not tied to a bug, but are critical
+
+mitigations: Stack Canary, RELRO, NX
+3.) Call Indirect
+	-	Basic test
+	-	Indirect ptr on stack is compared
+	-	cmp to get to indirect ptr
+	-	multiple indirect ptrs on stack, not all are compared
+	-	multiple false win funcs, one real win func
+	-	multiple inputs not tied to a bug, but are critical

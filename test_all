@@ -71,4 +71,4 @@ if __name__ == "__main__":
 		print("\nNot Successful Exploit\nTarget: %s\nDirectory: %s\n" % (failedTest[0], failedTest[1]))
 
 	print("\nSuccessful Exploits: %d" % len(pwnedTests))
-	print("\nSuccessful Exploits: %d" % len(failedTests))
+	print("\nNot Successful Exploits: %d" % len(failedTests))
