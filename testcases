@@ -29,11 +29,6 @@ tu19_thefirst				pwned
 tamu19_pwn4
 tu17_vulnchat	
 
-
-pico19_overflow0
-hackucf_ret
-utc_pwn2
-
 2-bof_shellcode
 
 tamu19_pwn3 				pwned
@@ -83,7 +78,10 @@ mitgations:	PIE, Stack Canary, RELRO, NX
 	-	Overwrite three vars, two fake win funcs
 	-	multiple comapres against single value
 	-	nested compares
+
 	-	multiple inputs not tied to a bug, but are critical
+	-	argv
+	-	pie printf infoleak
 
 mitgations:	RELRO, NX
 1.) Call Func
@@ -92,10 +90,12 @@ mitgations:	RELRO, NX
 1	-	Basic Test of Import System
 1	-	Overflow with one var, call func
 1	-	Overflow with three vars, call func
-0	-	Baic test with multiple win funcs
-0	-	Baic test with multiple false win funcs, one win func
+1	-	Baic test with multiple win funcs
+1	-	Baic test with multiple false win funcs, one win func
 
-0	-	multiple inputs not tied to a bug, but are critical
+	-	multiple inputs not tied to a bug, but are critical
+	-	argv
+	-	pie printf infoleak
 
 mitgations:	RELRO, PIE
 2.) Call Shellcode
@@ -104,7 +104,10 @@ mitgations:	RELRO, PIE
 	-	Have to place shellcode ahead of stack variable
 	- 	Have to place shellcode between two stack variables
 	-	Have to place shellcode after return address
+
 	-	multiple inputs not tied to a bug, but are critical
+	-	argv
+	-	pie printf infoleak
 
 mitigations: Stack Canary, RELRO, NX
 3.) Call Indirect
