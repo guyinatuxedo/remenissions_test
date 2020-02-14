@@ -6,11 +6,19 @@ void main(void)
 
 	char buf[50];
 
-	int t0, t1, t2, t3, t4, t5;
+	int target0, target1;
 
-	fgets(buf, 100, stdin);
+	fgets(buf, 60, stdin);
 
-	if ((t0 > 0xdead) && (t1 < 0xdead) && (t2 >= 0xfacade) && (t3 <= 0xfacade) && (t4 == 0xbeef) && (t5 == 0xbeef))
+
+
+	if (target1 == 0xdead)
+	{
+		puts("rip");
+		exit(0);
+	}
+
+	if (target0 == 0xfacade)
 	{
 		system("/bin/sh");
 	}
