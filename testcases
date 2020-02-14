@@ -73,7 +73,8 @@ mitgations:	PIE, Stack Canary, RELRO, NX
 0.) Overflow Vars
 1	-	Basic Test
 1	-	Overwrite  Three Vars, two equal, one not equal
-	- 	Overwrtite six vars, one equal, one not equal, one less than, one greater than, one less than or equal to, one greater than or equal to
+1	-	Overwrite Var, with var past where you can write
+1	- 	Overwrtite six vars, one equal, one not equal, one less than, one greater than, one less than or equal to, one greater than or equal to
 	-	Overwrite three vars, two fake win funcs
 
 	
