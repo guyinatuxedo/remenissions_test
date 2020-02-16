@@ -99,21 +99,31 @@ mitgations:	RELRO, NX
 
 mitgations:	RELRO, PIE
 2.) Call Shellcode
-	- 	Basic Test
-	-	Basic test with scanf
+1	- 	Basic Test
+1	-	Basic test with scanf
 	-	Have to place shellcode ahead of stack variable
 	- 	Have to place shellcode between two stack variables
 	-	Have to place shellcode after return address
+	-	Have to place shellcode in place of variables with cmps against them
+
+
+	-	dynamic analyzer, stack infoleak from different function
 
 	-	multiple inputs not tied to a bug, but are critical
 	-	argv
-	-	pie printf infoleak
+
 
 mitigations: Stack Canary, RELRO, NX
 3.) Call Indirect
-	-	Basic test
-	-	Indirect ptr on stack is compared
-	-	cmp to get to indirect ptr
-	-	multiple indirect ptrs on stack, not all are compared
-	-	multiple false win funcs, one real win func
+1	-	Basic test
+1	-	Indirect ptr on stack is compared
+1	-	cmp to get to indirect ptr
+1	-	Mutliple indirect ptrs
+1	-	Multiple indirect ptrs, compares to get to them, and cmps against indirect ptrs
+1	-	multiple false win funcs, one real win func
+
+
 	-	multiple inputs not tied to a bug, but are critical
+	-	argv input
+	-	pie printf infoleak
+	-	libc printf infoleak
