@@ -106,7 +106,7 @@ mitgations:	RELRO, PIE
 1	-	Have to place shellcode ahead of stack variable
 1	- 	Have to place shellcode between two stack variables
 1	-	Have to place shellcode after return address
-	-	Have to place shellcode in place of variables with cmps against them
+1	-	Have to place shellcode in place of variables with cmps against them (cmps not critical)
 
 
 	-	dynamic analyzer, stack infoleak from different function
