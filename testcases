@@ -1,6 +1,6 @@
 target:		100 / 100
 
-current:	16 / 100
+current:	17 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
 
@@ -33,8 +33,9 @@ tu17_vulnchat
 
 tamu19_pwn3 				pwned
 tu18_shellaeasy				pwned
+hackucf_superstack			pwned
 csaw17_pilot
-hackucf_superstack
+
 
 
 3 - indirect_call
@@ -101,9 +102,10 @@ mitgations:	RELRO, PIE
 2.) Call Shellcode
 1	- 	Basic Test
 1	-	Basic test with scanf
-	-	Have to place shellcode ahead of stack variable
-	- 	Have to place shellcode between two stack variables
-	-	Have to place shellcode after return address
+1	-	Basic test, infoleak points to start of input plus offset
+1	-	Have to place shellcode ahead of stack variable
+1	- 	Have to place shellcode between two stack variables
+1	-	Have to place shellcode after return address
 	-	Have to place shellcode in place of variables with cmps against them
 
 
