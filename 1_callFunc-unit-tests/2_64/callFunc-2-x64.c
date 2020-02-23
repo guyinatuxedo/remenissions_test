@@ -1,21 +1,23 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 
-void win(void)
+char *binsh0 = "set me free";
+char *binsh1 = "/bin/sh";
+
+void systemFunct(void)
 {
-	system("/bin/sh");
+        system("echo 'hi'");
 }
+
+void vuln(void)
+{
+	char hi[20];
+	fgets(hi, 100, stdin);
+}	
+
 
 void main(void)
 {
-	char vuln[20];
-	int var0;
-	fgets(vuln, 100, stdin);
-
-	if (var0 != 0xfacade)
-	{
-		exit(0);
-	}
-
-
+	vuln();
 }

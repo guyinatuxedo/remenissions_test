@@ -1,31 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void falseWin0(void)
-{
-	system("trashed and scattered");
-}
-
-void win(void)
+void win0(void)
 {
 	system("/bin/sh");
 }
 
-void falseWin1(void)
+void win1(void)
 {
-	system("people = shit");
+	system("/bin/sh");
 }
 
-void falseWin2(char inp)
+void win2(void)
 {
-	system(inp);
+	system("/bin/sh");
 }
 
 void vuln(void)
 {
 	char vuln[20];
+	int var0, var1, var2;
+	long var3;
 
 	fgets(vuln, 100, stdin);
+
+	if (var0 != 0xfacade)
+	{
+		exit(0);
+	}
+
+	if (var1 != 0xdead)
+	{
+		exit(0);
+	}
+
+	if (var3 != 0xdeadbeefdeadbeef)
+	{
+		exit(0);
+	}
 
 }
 

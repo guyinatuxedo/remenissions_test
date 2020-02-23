@@ -1,17 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void win0(void)
-{
-	system("/bin/sh");
-}
-
-void win1(void)
-{
-	system("/bin/sh");
-}
-
-void win2(void)
+void win(void)
 {
 	system("/bin/sh");
 }

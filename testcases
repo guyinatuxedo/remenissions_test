@@ -84,15 +84,23 @@ mitgations:	PIE, Stack Canary, RELRO, NX
 	-	argv
 	-	pie printf infoleak
 
-mitgations:	RELRO, NX
+mitgations:	RELRO, NX, PIE
 1.) Call Func
 
 1	-	Basic Test
+1 	-	Basic Test no mitigations
 1	-	Basic Test of Import System
 1	-	Overflow with one var, call func
 1	-	Overflow with three vars, call func
 1	-	Baic test with multiple win funcs
 1	-	Baic test with multiple false win funcs, one win func
+1	-	Basic Test w pie infoleak
+	-	Basic Test of Import System w pie infoleak
+	-	Overflow with one var, call func w pie infoleak
+	-	Overflow with three vars, call func w pie infoleak
+	-	Baic test with multiple win funcs w pie infoleak
+	-	Baic test with multiple false win funcs, one win func w pie infoleak
+
 
 	-	multiple inputs not tied to a bug, but are critical
 	-	argv
@@ -129,3 +137,8 @@ mitigations: Stack Canary, RELRO, NX
 	-	argv input
 	-	pie printf infoleak
 	-	libc printf infoleak
+
+4.)
+
+5.) ret2libc
+	-	Basic Test
