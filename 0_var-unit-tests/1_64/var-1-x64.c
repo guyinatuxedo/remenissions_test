@@ -5,18 +5,19 @@ void main(void)
 {
 
 	char buf[50];
-
 	int target0;
-	long target1;
-	int target2;
+	int target1;
 
-	target2 = 0xdead;
+	gets(buf);
 
-	fgets(buf, 100, stdin);
-
-	if ((target0 == 0xfacade) && (target1 == 0xbeef) && (target2 != 0xdead))
+	if (target0 == 0xfacade)
 	{
 		system("/bin/sh");
 	}
 
+	if (target1 == 0xfacade)
+	{
+		system("/bin/sh");
+	}
 }
+

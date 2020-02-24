@@ -6,44 +6,15 @@ void main(void)
 
 	char buf[50];
 
-	int t0, t1, t2;
+	int target0, target1, target2, target3, target4, target5;
+
+	target2 = 0xdead;
 
 	fgets(buf, 100, stdin);
 
-
-	if (t0 == 0xdead)
+	if ((target0 == 0xfacade) && (target1 != 0xbeef) && (target2 < 0xdead) && (target3 > 0xfacade) && (target4 <= 0xbeef) && (target5 >= 0xdead))
 	{
-		exit(0);
-	}
-
-	if (t0 == 0xbeef)
-	{
-		exit(0);
-	}
-
-	if (t1 == 0xdead)
-	{
-		exit(0);
-	}
-
-	if (t2 == 0xdead)
-	{
-		exit(0);
-	}
-
-	if (t2 == 0xbeef)
-	{
-		exit(0);
-	}
-
-	if (t2 == 0xadbe)
-	{
-		exit(0);
-	}
-
-	if ((t0 == 0xfacade) && (t1 == 0xfacade) && (t2 == 0xfacade))
-	{
-		system("/bin/sh");	
+		system("/bin/sh");
 	}
 
 }
