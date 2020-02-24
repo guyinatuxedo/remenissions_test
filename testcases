@@ -79,9 +79,9 @@ mitgations:	PIE, Stack Canary, RELRO, NX
 1	- 	Overwrtite six vars, one equal, one not equal, one less than, one greater 
 than, one less than or equal to, one greater than or equal to
 1	-	^ that one, but no mitigations	
-	-	Repeated Cmps against single variable
-	-	More Repeated Cmps against single variable
-	-	Nested cmps
+1	-	Repeated Cmps against single variable
+1	-	More Repeated Cmps against single variable
+1	-	Nested cmps
 
 	-	multiple inputs not tied to a bug, but are critical
 	-	argv
