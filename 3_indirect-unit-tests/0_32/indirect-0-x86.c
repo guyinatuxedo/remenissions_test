@@ -14,6 +14,7 @@ void main(void)
 	volatile int (*ptr)();
 	char buf1[200];
 
+	printf("Will you bless us: %p\n", main);
 	fgets(buf0, 100, stdin);
 
 	ptr();

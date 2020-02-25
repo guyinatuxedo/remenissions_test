@@ -3,20 +3,22 @@
 
 void vuln(void)
 {
-	char buf0[2];
-	int t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15;
+	char buf[10];
+	int t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14;
+	
 
-	t0 = t1 = t2 = t3 = t4 = t5 = t6 = t7 = t8 = t9 = t10 = t11 = t12 = t13 = t14 = t15 = 0xdead;
+	printf("Stack Infoleak: %p\n", buf);
 
-	printf("Stack Infoleak: %p\n", buf0);
+	t1 = t2 = t3 = t4 = t5 = t6 = t7 = t8 = t9 = t10 = t11 = t12 = t13 = t14 = 0xdead;
 
-	fgets(buf0, 83, stdin);
 
-	if ((t0 == t1) && (t2 == t3) && (t4 == t5) && (t6 == t7) && (t8 == t9) && (t10 == t11) && (t12 == t13) && (t14 == t15) && (t15 == 0xdead))
+	fgets(buf, 124, stdin);
+
+
+	if ((t0 != 0xfacade) && (t14 != 0xfacade))
 	{
-		puts("Bring the broken back to life.");
+		exit(0);
 	}
-
 }
 
 void main(void)

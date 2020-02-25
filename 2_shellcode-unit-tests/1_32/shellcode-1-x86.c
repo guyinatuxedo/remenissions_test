@@ -6,7 +6,7 @@ void vuln(void)
 	char buf[100];
 
 	printf("Stack Infoleak: %p\n", buf);
-	scanf("%s", buf);
+	gets(buf);
 }
 
 void main(void)
