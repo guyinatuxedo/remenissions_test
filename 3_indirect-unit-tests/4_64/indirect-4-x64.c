@@ -11,33 +11,19 @@ void main(void)
 {
 
 	char buf0[20];
-	volatile int (*ptr0)();
-	volatile int (*ptr1)();
-	volatile int (*ptr2)();
+	volatile int (*ptr)();
+	int target0, target1;
 	char buf1[200];
-	int v0, v1, v2;
 
 	fgets(buf0, 100, stdin);
 
-	if (v0 == 0xdead)
+	if (target1 == 0xdead)
 	{
 		exit(0);
-		ptr0();
 	}
 
-	else if (v1 == 0xbeef)
+	if (target0 == 0xfacade)
 	{
-		exit(0);
-		ptr1();
+		ptr();
 	}
-
-	else if (v2 == 0xfacade )
-	{
-		if (ptr1 != 0)
-		{
-			ptr2();
-		}
-	}
-
-
 }

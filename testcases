@@ -1,8 +1,9 @@
 target:		100 / 100
 
-current:	20 / 100
+current:	22 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
+
 
 0-bof_var:
 
@@ -28,6 +29,8 @@ pico19_overflow0			pwned
 tu19_thefirst				pwned
 easyctfiv-rop1				pwned
 sunshine19-ret2				pwned
+nctf19_babypwn				pwned
+nctf19_oneshot-onekill		pwned
 tu16-bbys-first-elf			(not pwned, needs dynamic offset correction)
 tamu19_pwn4
 tu17_vulnchat	
@@ -131,15 +134,16 @@ mitgations:	RELRO, PIE
 	-	argv
 
 
-mitigations: Stack Canary, RELRO, NX
+mitigations: SNX
 3.) Call Indirect
-1	-	Basic testls
+1	-	Basic test
+1	-	Basic test w libc infoleak, pie enabled
+1	-	Basic test w pie inofleak, pie enabled (x64 only)
 1	-	Indirect ptr on stack is compared
 1	-	cmp to get to indirect ptr
 1	-	Mutliple indirect ptrs
 1	-	Multiple indirect ptrs, compares to get to them, and cmps against indirect ptrs
-	-	Multiple indirect ptrs, compares to get to them, and cmps against indirect ptrs, no mitigationsc
-1	-	multqiple false win funcs, one real win func
+1	-	multiple false win funcs, one real win func
 
 
 	-	multiple inputs not tied to a bug, but are critical
@@ -150,4 +154,7 @@ mitigations: Stack Canary, RELRO, NX
 4.)
 
 5.) ret2libc
-	-	Basic Test
+1	-	Basic Test
+1	-	Basic Test No Pie
+1	-	Basic test with single variable cmp
+1	-	Only have 8 byte write over return address, test onegadget (x64 only)

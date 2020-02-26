@@ -2,20 +2,8 @@
 #include <stdlib.h>
 
 
-void notPwn0(void)
-{
-	exit(0);
-	system("/bin/sh");
-}
-
 void pwn(void)
 {
-	system("/bin/sh");
-}
-
-void notPwn1(void)
-{
-	exit(0);
 	system("/bin/sh");
 }
 

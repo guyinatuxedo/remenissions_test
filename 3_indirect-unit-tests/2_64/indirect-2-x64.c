@@ -12,18 +12,11 @@ void main(void)
 
 	char buf0[20];
 	volatile int (*ptr)();
-	int target0, target1;
 	char buf1[200];
 
+	printf("Don't live your life in shame: %p\n", printf);
 	fgets(buf0, 100, stdin);
 
-	if (target1 == 0xdead)
-	{
-		exit(0);
-	}
+	ptr();
 
-	if (target0 == 0xfacade)
-	{
-		ptr();
-	}
 }
