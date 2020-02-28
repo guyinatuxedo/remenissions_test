@@ -16,7 +16,7 @@ def parse0xInfoleak(string):
 	while foundEnd == False:
 
 		if string[index] not in hexChars:
-			print(string[index])
+			#print(string[index])
 			index = index + 1
 			if index >= (stringLen - 1):
 				foundEnd = True
@@ -50,11 +50,12 @@ memRegions = {"stack": stack, "libc": libc, "pie": pie}
 def queryMemoryRegions():
 
 	target.sendline("vmmap")
-	memMappings = target.recvuntil("gef").split("\n")[1:-1]
-	print("live as")
+	memMappings = target.recvuntil("gef").split("\n")[2:-1]
+	print(memMappings)
+	#print("live as")
 	for line in memMappings:
 		lineParts = line.split(" ")
-		#print("lineparts is: %s" % str(lineParts))
+		print("lineparts is: %s" % str(lineParts))
 		if "stack" in lineParts[4]:
 			areaStart = int(lineParts[0], 16)
 			areaEnd   = int(lineParts[1], 16)
@@ -82,28 +83,40 @@ def processInfoleak(infoleak):
 
 def reportInfoleak(infoleak):
 	print("Infoleak is: %s" % str(infoleak))
-	
+
+
+def gotCrash():
+	print("got a crash yo")
+	sys.exit()
+
 def processOutput(output):
 	outputLen = len(output)
 	if outputLen == 0:
 		return
 
-	hasNumber = doesStringHaveNumbers(output)
-	if hasNumber == False:
+	if "SIGSEGV" in output:
+		gotCrash()
+
+	if "exited" in output:
 		return
 
-	if "0x" in output:
-		parsedInfoleak = parse0xInfoleak(output)
-		print("output is: %s" % str(parsedInfoleak))
-		print("Infoleak is: %s" % hex(parsedInfoleak[2]))
-		queryMemoryRegions()
-		infoleak = processInfoleak(parsedInfoleak[2])
-		if infoleak != None:
-			reportInfoleak(infoleak)
-		#print("Infoleak is: %s" % str(infoleak))
+	print("Parsing Output: %s" % str(output))
 
-		target.interactive()
-		sys.exit()
+	#hasNumber = doesStringHaveNumbers(output)
+	#if hasNumber == False:
+	#	return
+
+	#infoleak = None
+	#if "0x" in output:
+	#	parsedInfoleak = parse0xInfoleak(output)
+	#	queryMemoryRegions()
+	#	infoleak = processInfoleak(parsedInfoleak[2])
+
+	#if infoleak != None:
+	#	if infoleak[0] == "stack":
+	#		print("stack infoleak yo")
+			#target.interactive()
+	#	reportInfoleak(infoleak)
 
 
 class TimeoutError(Exception):
@@ -135,38 +148,46 @@ def hi():
     except:
         return False
 
+
 targetBinary = "hi"
+target = None
 
-target = process(["gdb", ("./%s" % targetBinary)])
+def setup():
+	global target
+	global targetBinary
 
-target.recvuntil("gef")
+	target = process(["gdb", ("./%s" % targetBinary)])
 
-target.sendline("catch syscall read")
+	target.recvuntil("gef")
 
-target.recvuntil("gef")
+	target.sendline("catch syscall read write")
 
-target.sendline("commands")
+	#target.sendline("catch syscall write")
 
-target.sendline("silent")
+	target.recvuntil("gef")
 
-target.sendline("echo \\n\\nThat's what you do best\\n\\n")
+	target.sendline("commands")
 
-target.sendline("end")
+	target.sendline("silent")
 
-target.recvuntil("gef")
+	target.sendline("echo \\n\\nThat's what you do best\\n\\n")
 
-target.sendline("r")
-target.recvuntil("gef")
-target.recvuntil("gef")
-target.recvuntil("gef")
-x = target.recvuntil("gef").split("\n\nThat's what")
+	target.sendline("end")
 
-target.sendline("c")
+	target.recvuntil("gef")
 
-x = target.recvuntil("gef").split("\n\nThat's what")[0].split("Continuing.\n")[1]
+	target.sendline("r")
+	target.recvuntil("gef")
+	target.recvuntil("gef")
+	target.recvuntil("gef")
+	x = target.recvuntil("gef").split("\n\nThat's what")
 
-exited = False
+	target.sendline("c")
 
+
+
+
+'''
 while "exited normally" not in x:
 	if exited == True:
 		print("yo")
@@ -184,5 +205,39 @@ while "exited normally" not in x:
 	x = hi()
 	if x == False:
 		exited = True
+'''
 
+def sendInput():
+	target.sendline("15935728"*100)
 
+def mainLoop():
+	#target.interactive()
+	#x = target.recvuntil("gef")
+	#while "That's what" not in x:
+	#	target.sendline("c")
+	#	x = target.recvuntil("gef")
+
+	x = target.recvuntil("gef").split("\n\nThat's what")[0].split("Continuing.\n")[1]
+	#x = target.recvuntil("gef").split("\n\nThat's what")[0].split("Continuing.\n")[1]
+	exited = False
+	print("x is: %s" % str(x))
+	#target.interactive()
+	while exited == False:	
+		while x != False:
+			if ("exited normally" in x) or ("not being run" in x):
+				print("yo")
+				sys.exit(0)
+			processOutput(x)
+			target.sendline("c")
+			x = hi()
+
+		sendInput()
+		target.sendline("c")
+
+		x = hi()
+		if x == False:
+			exited = True
+	print("yo")
+
+setup()
+mainLoop()
