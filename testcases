@@ -1,6 +1,6 @@
 target:		100 / 100
 
-current:	25 / 100
+current:	27 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
 
@@ -20,28 +20,30 @@ tamu19_pwn1
 tw17_justdoit				(saving for later)
 
 
-10/10
+13/10
 
 1-bof_func
 
-csaw16_warmup 				pwned 
-csaw18_getit 				pwned 
-hackucf_ret					pwned 
+csaw16_warmup 				pwned
+csaw18_getit 				pwned
+hackucf_ret					pwned
 protostar_stack4			pwned
 utc_pwn2					pwned
-pico19_overflow0			pwned 
+pico19_overflow0			pwned
 tu19_thefirst				pwned
 easyctfiv-rop1				pwned
 sunshine19-ret2				pwned
 nctf19_babypwn				pwned
 nctf19_oneshot-onekill		pwned
 Matte_bof3					pwned
-tu16-bbys-first-elf			(not pwned, needs dynamic offset correction)
+tu16-bbys-first-elf			pwned
+tu19_thefirst				pwned
 tamu19_pwn4
 tu17_vulnchat	
 tu18-shella-hard
 
-04/10
+
+05/10
 
 2-bof_shellcode
 
@@ -49,7 +51,7 @@ tamu19_pwn3 				pwned
 tu18_shellaeasy				pwned
 hackucf_superstack			pwned
 esecurity18_pwn01			pwned
-csaw17_pilot
+csaw17_pilot				pwned
 
 02/10
 
