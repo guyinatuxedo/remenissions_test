@@ -168,3 +168,8 @@ mitigations: SNX
 1	-	Basic Test No Pie
 1	-	Basic test with single variable cmp
 1	-	Only have 8 byte write over return address, test onegadget (x64 only)
+
+6.) callInput
+1	-	Call Input off from Stack
+1	-	Call Input from allocated Space
+1	-	Call Input off from stack with offset
