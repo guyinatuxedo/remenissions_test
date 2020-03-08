@@ -173,3 +173,4 @@ mitigations: SNX
 1	-	Call Input off from Stack
 1	-	Call Input from allocated Space
 1	-	Call Input off from stack with offset
+1	-	Call Input from allocated Space with offset

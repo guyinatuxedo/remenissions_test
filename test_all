@@ -11,6 +11,43 @@ def getDirectory(files, fileName):
 			return i[1]
 	return False
 
+def getLibc(files):
+	for file in files:
+		if ("libc" in file) and ("so" in file):
+			#print("Found: %s" % file)
+			#sys.exit(0)
+			return file
+	return None
+
+def getCategories(testCases):
+	categories = []
+	for testCase in testCases:
+		directory = testCase[1]
+		pathParts = directory.split("/")
+		category = pathParts[-2]
+		if category not in categories:
+			categories.append(pathParts[-2])
+	return categories
+
+def getCategory(testCase):
+	directory = testCase[1]
+	pathParts = directory.split("/")
+	category = pathParts[-2]
+	return category
+
+def getDict(categories):
+	testcases = {}
+	for category in categories:
+		testcases[category] = []
+	return testcases
+
+
+def printTestcases(testCases):
+#print("\nSuccessful Exploit\nTarget: %s\nDirectory: %s\n" % (pwnedTest[0], pwnedTest[1]))
+	for testCase in testCases:
+		print("\tTarget:\t%s\tDirectory:\t%s" % (testCase[0], testCase[1]))
+
+
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description = "Testing utillity for autopwner")
 	parser.add_argument("-d", metavar='-D', type=str, help="Subdirectory to test challenges", default=None)
@@ -38,8 +75,12 @@ if __name__ == "__main__":
 					fileName = file
 					fileDir  = i[0]
 					if fileName not in fileNames:
+						libc = getLibc(files)
 						fileNames.append(fileName)
-						testFiles.append([fileName, fileDir])
+						if libc == None:
+							testFiles.append([fileName, fileDir])
+						else:
+							testFiles.append([fileName, fileDir, libc])
 					else:
 						print("\n\nName Confliction\n\n")
 						print(fileName)
@@ -50,12 +91,22 @@ if __name__ == "__main__":
 	pwnedTests = []
 	failedTests = []
 
+	categories = getCategories(testFiles)
+	passedTestcases = getDict(categories)
+	failedTestcases = getDict(categories)
+
 	for test in testFiles:
 		currentFile = test[0]
 		currentDirectory = test[1]
 		print("\n\nTesting: %s\nFrom: %s\n" % (currentFile, currentDirectory))
 		os.chdir(currentDirectory)
-		output = os.popen('remenissions -b %s' % currentFile).read()
+		if len(test) == 2:
+			output = os.popen('remenissions -b %s' % currentFile).read()
+
+		elif len(test) == 3:
+			libcFile = test[2]
+			print("libc file is: %s" % libcFile)
+			output = os.popen('remenissions -b %s -l %s' % (currentFile, libcFile)).read()			
 		if "Exploit Successful:" in output:
 			#print("\n\nSuccessful Test\nFileName: %s\nDirectory %s\n" % (currentFile, currentDirectory))
 			pwnedTests.append([currentFile, currentDirectory])
@@ -64,11 +115,37 @@ if __name__ == "__main__":
 			#print("Not Successful Test\nFileName: %s\nDirectory %s\n" % (currentFile, currentDirectory))
 
 	for pwnedTest in pwnedTests:
-		print("\nSuccessful Exploit\nTarget: %s\nDirectory: %s\n" % (pwnedTest[0], pwnedTest[1]))
+		category = getCategory(pwnedTest)
+		passedTestcases[category].append(pwnedTest)
+		#print("\nSuccessful Exploit\nTarget: %s\nDirectory: %s\n" % (pwnedTest[0], pwnedTest[1]))
 
 
 	for failedTest in failedTests:
-		print("\nNot Successful Exploit\nTarget: %s\nDirectory: %s\n" % (failedTest[0], failedTest[1]))
+		category = getCategory(failedTest)
+		failedTestcases[category].append(failedTest)
+		#print("\nNot Successful Exploit\nTarget: %s\nDirectory: %s\n" % (failedTest[0], failedTest[1]))
 
-	print("\nSuccessful Exploits: %d" % len(pwnedTests))
-	print("\nNot Successful Exploits: %d" % len(failedTests))
+	overallPtNum = 0
+	overallFtNum = 0
+	overallTotalNum = 0
+	for category in categories:
+		pt = passedTestcases[category]
+		ft = failedTestcases[category]
+		ptNum = len(pt)
+		ftNum = len(ft)
+		totalNum = ptNum + ftNum
+		print("\n\nCategory: \t\t%s" % str(category))
+		print("Total Testcases  \tCount: %d" % totalNum)
+		print("Passed Testcases \tCount: %d" % ptNum)
+		print("Failed Testcases \tCount: %d" % ftNum)
+		print("Passed Testcasses: ")
+		printTestcases(pt)
+		print("Failed Testcases: ")
+		printTestcases(ft)
+		overallPtNum += ptNum
+		overallFtNum += ftNum
+		overallTotalNum += totalNum
+
+	print("\n\nTotal Testcases: \t%d" % overallTotalNum)
+	print("Total Passes: \t\t%d" % overallPtNum)
+	print("Total Failed: \t\t%d" % overallFtNum)
