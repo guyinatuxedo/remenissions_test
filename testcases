@@ -20,7 +20,7 @@ tamu19_pwn1
 tw17_justdoit				(saving for later)
 
 
-13/10
+14/10
 
 1-bof_func
 
@@ -38,6 +38,7 @@ nctf19_oneshot-onekill		pwned
 Matte_bof3					pwned
 tu16-bbys-first-elf			pwned
 tu19_thefirst				pwned
+pico18_bof1					pwned
 tamu19_pwn4
 tu17_vulnchat	
 tu18-shella-hard
@@ -60,6 +61,7 @@ csaw17_pilot				pwned
 
 protostar_stack3			pwned
 hackucf_bof3				pwned
+pico17_shells
 
 These two sections are for later
 
@@ -69,15 +71,12 @@ bkp16_simplecalc
 dcquals16_feedme
 dcquals19_speedrun1
 
+02/10
 
+5 - ret2libc
 
-5-bof_dynamic
-
-csaw19_babyboi
-csawquals17_svc
-fb19_overfloat
-hs19_storytime
-utc19_shellme
+pico18_got-2-learn-libc		pwned
+csaw19_babyboi				pwned
 
 Unit Testing
 
