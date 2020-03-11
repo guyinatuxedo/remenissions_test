@@ -67,16 +67,23 @@ if __name__ == "__main__":
 	testFiles = []
 	fileNames = []
 
+	noTempDirectoryFilenames = []
+
 	for i in walkDirectory:
 		if len(i) == 3:
 			files = i[2]
 			for file in files:
+				if "noop" in i[0]:
+					continue
 				if "chall-test" in file:
+					#print(files)
 					fileName = file
 					fileDir  = i[0]
 					if fileName not in fileNames:
 						libc = getLibc(files)
 						fileNames.append(fileName)
+						if ('libpwnableharness32.so' in files) or ('libpwnableharness64.so' in files):
+							noTempDirectoryFilenames.append(fileName)
 						if libc == None:
 							testFiles.append([fileName, fileDir])
 						else:
@@ -95,18 +102,26 @@ if __name__ == "__main__":
 	passedTestcases = getDict(categories)
 	failedTestcases = getDict(categories)
 
+	#print(noTempDirectoryFilenames)
+	#sys.exit(0)
 	for test in testFiles:
 		currentFile = test[0]
 		currentDirectory = test[1]
 		print("\n\nTesting: %s\nFrom: %s\n" % (currentFile, currentDirectory))
 		os.chdir(currentDirectory)
 		if len(test) == 2:
-			output = os.popen('remenissions -b %s' % currentFile).read()
+			if (currentFile in noTempDirectoryFilenames):
+				output = os.popen('remenissions -b %s -w' % currentFile).read()
+			else:
+				output = os.popen('remenissions -b %s' % currentFile).read()
 
 		elif len(test) == 3:
 			libcFile = test[2]
 			print("libc file is: %s" % libcFile)
-			output = os.popen('remenissions -b %s -l %s' % (currentFile, libcFile)).read()			
+			if (currentFile in noTempDirectoryFilenames):
+				output = os.popen('remenissions -b %s -l %s -w' % (currentFile, libcFile)).read()	
+			else:
+				output = os.popen('remenissions -b %s -l %s' % (currentFile, libcFile)).read()			
 		if "Exploit Successful:" in output:
 			#print("\n\nSuccessful Test\nFileName: %s\nDirectory %s\n" % (currentFile, currentDirectory))
 			pwnedTests.append([currentFile, currentDirectory])
