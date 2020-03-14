@@ -1,6 +1,6 @@
 target:		100 / 100
 
-current:	40 / 100
+current:	43 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
 
@@ -79,7 +79,7 @@ bkp16_simplecalc
 dcquals16_feedme
 dcquals19_speedrun1
 
-05/10
+08/10
 
 5 - ret2libc
 
@@ -88,10 +88,13 @@ csaw19_babyboi				pwned
 MattEctf_Rop1				pwned
 MattEctf_Rop2				pwned
 fireshell19_leakless		pwned
+hs19_combo-chain-lite		pwned
+encrypt19_pwn3				pwned
+encrypt19_pwn2				pwned
 d4mianwayne_bitterman
 hs19_storytime
 hs19_combo-chain
-hs19_combo-chain-lite
+
 ENCRYPTCTF19_pwn4
 dcquals19_speedrun002
 
