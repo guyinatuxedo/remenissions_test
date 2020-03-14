@@ -1,6 +1,6 @@
 target:		100 / 100
 
-current:	27 / 100
+current:	40 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
 
@@ -18,9 +18,10 @@ MattE_bof2					pwned
 
 tamu19_pwn1		
 tw17_justdoit				(saving for later)
+angstrumctf16_overflow1
 
 
-14/10
+20/10
 
 1-bof_func
 
@@ -39,9 +40,16 @@ Matte_bof3					pwned
 tu16-bbys-first-elf			pwned
 tu19_thefirst				pwned
 pico18_bof1					pwned
+encrypt19_pwn0				pwned
+encrypt19_pwn1				pwned
+HSCTF19_returntosender		pwned
+redpwnctf19_hardmode		pwned
+angstrum20_no-canary		pwned
 tamu19_pwn4
 tu17_vulnchat	
 tu18-shella-hard
+angstrumctf_overflow2		(argc)
+angstrumctf_overflow3		(argc)
 
 
 05/10
@@ -71,12 +79,28 @@ bkp16_simplecalc
 dcquals16_feedme
 dcquals19_speedrun1
 
-02/10
+05/10
 
 5 - ret2libc
 
 pico18_got-2-learn-libc		pwned
 csaw19_babyboi				pwned
+MattEctf_Rop1				pwned
+MattEctf_Rop2				pwned
+fireshell19_leakless		pwned
+d4mianwayne_bitterman
+hs19_storytime
+hs19_combo-chain
+hs19_combo-chain-lite
+ENCRYPTCTF19_pwn4
+dcquals19_speedrun002
+
+
+01/05
+
+6 - callInput
+
+angstrom16_shellcode		pwned
 
 Unit Testing
 
