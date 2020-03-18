@@ -1,8 +1,10 @@
 target:		100 / 100
 
-current:	47 / 100
+current:	48 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
+
+hackucf_stack0pt1
 
 07/10
 
@@ -21,7 +23,7 @@ tw17_justdoit				(saving for later)
 angstrumctf16_overflow1
 
 
-20/10
+21/10
 
 1-bof_func
 
@@ -45,6 +47,7 @@ encrypt19_pwn1				pwned
 HSCTF19_returntosender		pwned
 redpwnctf19_hardmode		pwned
 angstrum20_no-canary		pwned
+247ctf_hidden 				pwned
 tamu19_pwn4
 tu17_vulnchat	
 tu18-shella-hard
@@ -111,6 +114,16 @@ tctf_turtlesh3lls-3			pwned
 00/10
 
 7	-	FormatString
+
+
+04/05
+
+8	-	Remote Libc ID
+
+247ctf_hidden 				pwned
+247ctf_hidden-parameters	pwned
+247ctf_executable-stack 	pwned
+247ctf_non-executable-stack pwned
 
 ENCRYPTCTF19_pwn4
 
