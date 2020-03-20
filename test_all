@@ -67,7 +67,7 @@ if __name__ == "__main__":
 	testFiles = []
 	fileNames = []
 
-	noTempDirectoryFilenames = []
+	additionalFiles = {}
 
 	for i in walkDirectory:
 		if len(i) == 3:
@@ -82,8 +82,12 @@ if __name__ == "__main__":
 					if fileName not in fileNames:
 						libc = getLibc(files)
 						fileNames.append(fileName)
-						if ('libpwnableharness32.so' in files) or ('libpwnableharness64.so' in files):
-							noTempDirectoryFilenames.append(fileName)
+						if ('libpwnableharness32.so' in files):
+							additionalFiles[fileName] = 'libpwnableharness32.so'
+
+						elif ('libpwnableharness64.so' in files):
+							additionalFiles[fileName] = 'libpwnableharness32.so'
+
 						if libc == None:
 							testFiles.append([fileName, fileDir])
 						else:
@@ -110,8 +114,10 @@ if __name__ == "__main__":
 		print("\n\nTesting: %s\nFrom: %s\n" % (currentFile, currentDirectory))
 		os.chdir(currentDirectory)
 		if len(test) == 2:
-			if (currentFile in noTempDirectoryFilenames):
-				output = os.popen('remenissions -b %s -w' % currentFile).read()
+			if (currentFile in additionalFiles.keys()):
+				output = os.popen('remenissions -b %s -a %s' % (currentFile, additionalFiles[currentFile])).read()
+			elif "localLibcId" in currentFile:
+				output = os.popen('remenissions -b %s -d localLibcId' % (currentFile)).read()
 			else:
 				output = os.popen('remenissions -b %s' % currentFile).read()
 

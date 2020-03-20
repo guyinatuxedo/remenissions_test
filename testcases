@@ -125,6 +125,16 @@ tctf_turtlesh3lls-3			pwned
 247ctf_executable-stack 	pwned
 247ctf_non-executable-stack pwned
 
+
+8	-	Local Livc ID
+
+angstrum20_no-canary
+pico19_overflow
+encrypt19_pwn0
+csaw18_getit
+pioc18_bof1
+csaw19_babyboi
+
 ENCRYPTCTF19_pwn4
 
 Unit Testing

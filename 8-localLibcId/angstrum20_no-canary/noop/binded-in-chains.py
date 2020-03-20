@@ -4,7 +4,7 @@ import time
 
 import sys
 
-target = process("./chall-test_localID-angstrum-no-canary")
+target = process("./chall-test_localLibcId-angstrum-no-canary")
 gdb.attach(target, gdbscript="get_libc_puts_address")
 
 payload = ""
