@@ -124,8 +124,8 @@ if __name__ == "__main__":
 		elif len(test) == 3:
 			libcFile = test[2]
 			print("libc file is: %s" % libcFile)
-			if (currentFile in noTempDirectoryFilenames):
-				output = os.popen('remenissions -b %s -l %s -w' % (currentFile, libcFile)).read()	
+			if (currentFile in additionalFiles.keys()):
+				output = os.popen('remenissions -b %s -l %s -a %s' % (currentFile, libcFile, additionalFiles[currentFile])).read()	
 			else:
 				output = os.popen('remenissions -b %s -l %s' % (currentFile, libcFile)).read()			
 		if "Exploit Successful:" in output:

