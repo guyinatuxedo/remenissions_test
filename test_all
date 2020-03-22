@@ -86,7 +86,7 @@ if __name__ == "__main__":
 							additionalFiles[fileName] = 'libpwnableharness32.so'
 
 						elif ('libpwnableharness64.so' in files):
-							additionalFiles[fileName] = 'libpwnableharness32.so'
+							additionalFiles[fileName] = 'libpwnableharness64.so'
 
 						if libc == None:
 							testFiles.append([fileName, fileDir])
