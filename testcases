@@ -242,3 +242,21 @@ mitigations: SNX
 1	-	Call Input from allocated Space
 1	-	Call Input off from stack with offset
 1	-	Call Input from allocated Space with offset
+
+
+7.) fmt string (32 bit only so far)
+1	-	Basic Test
+1	-	Basic Test no Binary Mitigations
+	-	Basic Test w offset
+
+	-	GOT Overwrite PIE w PIE Infoleak
+	-	GOT Overwrite to libc onegadget w Libc Infoleak
+	-	GOT Overwrite to stack shellcode w Stack Infoleak
+
+	-	GOT Overwrite to imported system, secondary input argument to call
+	-	GOT Overwrite to imported system, secondary input argument to call PIE Enabled w PIE Infoleak
+	-	GOT Overwrite to libc system, secondary input argument to call w libc infoleak
+
+	-	Return address overwrite to winfuc w Stack Infoleak
+	-	Return address overwrite to shellcode w Stack Infoleak
+	-	Return address overwrite to onegadget w Stack and libc Infoleak
