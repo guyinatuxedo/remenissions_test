@@ -247,16 +247,13 @@ mitigations: SNX
 7.) fmt string (32 bit only so far)
 1	-	Basic Test
 1	-	Basic Test no Binary Mitigations
-	-	Basic Test w offset
+1	-	Basic Test w offset
+1	-	Basic Test w offset not aligned to specific stack spot
 
-	-	GOT Overwrite PIE w PIE Infoleak
-	-	GOT Overwrite to libc onegadget w Libc Infoleak
-	-	GOT Overwrite to stack shellcode w Stack Infoleak
-
-	-	GOT Overwrite to imported system, secondary input argument to call
-	-	GOT Overwrite to imported system, secondary input argument to call PIE Enabled w PIE Infoleak
-	-	GOT Overwrite to libc system, secondary input argument to call w libc infoleak
+1	-	GOT Overwrite PIE w PIE Infoleak
+	-	GOT Overwrite to libc system/onegadet w Libc Infoleak
+	-	GOT overwrite to PIE system
+	-	GOT overwrite to PIE system w PIE
 
 	-	Return address overwrite to winfuc w Stack Infoleak
 	-	Return address overwrite to shellcode w Stack Infoleak
-	-	Return address overwrite to onegadget w Stack and libc Infoleak
