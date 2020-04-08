@@ -252,8 +252,8 @@ mitigations: SNX
 
 1	-	GOT Overwrite PIE w PIE Infoleak
 1	-	GOT Overwrite to libc system/onegadet w Libc Infoleak
-	-	GOT overwrite to PIE system
-	-	GOT overwrite to PIE system w PIE
+1	-	GOT overwrite to PIE system
+1	-	GOT overwrite to PIE system w PIE
 
 	-	Return address overwrite to winfuc w Stack Infoleak
 	-	Return address overwrite to shellcode w Stack Infoleak
