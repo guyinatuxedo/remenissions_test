@@ -255,5 +255,15 @@ mitigations: SNX
 1	-	GOT overwrite to PIE system
 1	-	GOT overwrite to PIE system w PIE
 
-	-	Return address overwrite to winfuc w Stack Infoleak
-	-	Return address overwrite to shellcode w Stack Infoleak
+1	-	Return address overwrite to winfuc w Stack Infoleak
+1	-	Return address overwrite to shellcode w Stack Infoleak
+
+
+
+1	-	Basic Test, multiple win funcs, room for only two writes (correctFsGotWinFunc)
+1	-	Basic Test, multiple win funcs W Pie (infoleak provided), room for only two writes (correctFsGotWinFunc)	
+1	-	GOT overwrite to imported system, room for only two writes
+1	-	GOT overwrite to imported system W Pie (infoleak provided), room for only two writes
+1	-	GOT Overwrite to libc system/onegadet w Libc Infoleak, room for only two writes
+1	-	Return address overwrite to winfuc w Stack Infoleak
+1	-	Return address overwrite to shellcode w Stack Infoleak
