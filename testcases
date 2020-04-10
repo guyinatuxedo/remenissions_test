@@ -251,10 +251,9 @@ mitigations: SNX
 1	-	got overwrite to winfunc, with string prepended to input before printed that does not align to new spot
 1	-	GOT Overwrite to winfunc, PIE enabled, PIE Infoleak provided
 1	-	GOT Overwrite to libc system w Libc Infoleak provided
+1	-	GOT overwrite to imported system
 
 
-
-1	-	GOT overwrite to PIE system
 1	-	GOT overwrite to PIE system w PIE
 
 1	-	Return address overwrite to winfuc w Stack Infoleak
