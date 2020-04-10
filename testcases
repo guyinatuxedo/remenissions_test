@@ -245,13 +245,15 @@ mitigations: SNX
 
 
 7.) fmt string (32 bit only so far)
-1	-	Basic Test
-1	-	Basic Test no Binary Mitigations
-1	-	Basic Test w offset
-1	-	Basic Test w offset not aligned to specific stack spot
+1	-	got overwrite to winfunc
+1	-	got overwrite to winfunc, no binary mitigations
+1	-	got overwrite to winfunc, with string prepended to input before printed
+1	-	got overwrite to winfunc, with string prepended to input before printed that does not align to new spot
+1	-	GOT Overwrite to winfunc, PIE enabled, PIE Infoleak provided
+1	-	GOT Overwrite to libc system w Libc Infoleak provided
 
-1	-	GOT Overwrite PIE w PIE Infoleak
-1	-	GOT Overwrite to libc system/onegadet w Libc Infoleak
+
+
 1	-	GOT overwrite to PIE system
 1	-	GOT overwrite to PIE system w PIE
 
