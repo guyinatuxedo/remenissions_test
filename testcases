@@ -244,27 +244,26 @@ mitigations: SNX
 1	-	Call Input from allocated Space with offset
 
 
-7.) fmt string (32 bit only so far)
-1	-	got overwrite to winfunc
-1	-	got overwrite to winfunc, no binary mitigations
-1	-	got overwrite to winfunc, with string prepended to input before printed
-1	-	got overwrite to winfunc, with string prepended to input before printed that does not align to new spot
-1	-	GOT Overwrite to winfunc, PIE enabled, PIE Infoleak provided
-1	-	GOT Overwrite to libc system w Libc Infoleak provided
-1	-	GOT overwrite to imported system
-
-
-1	-	GOT overwrite to PIE system w PIE
-
-1	-	Return address overwrite to winfuc w Stack Infoleak
-1	-	Return address overwrite to shellcode w Stack Infoleak
-
-
-
-1	-	Basic Test, multiple win funcs, room for only two writes (correctFsGotWinFunc)
-1	-	Basic Test, multiple win funcs W Pie (infoleak provided), room for only two writes (correctFsGotWinFunc)	
-1	-	GOT overwrite to imported system, room for only two writes
-1	-	GOT overwrite to imported system W Pie (infoleak provided), room for only two writes
-1	-	GOT Overwrite to libc system/onegadet w Libc Infoleak, room for only two writes
-1	-	Return address overwrite to winfuc w Stack Infoleak
-1	-	Return address overwrite to shellcode w Stack Infoleak
+7.) fmt string
+0.)		-	got overwrite to winfunc
+1.)		-	got overwrite to winfunc, no binary mitigations
+2.)		-	got overwrite to winfunc, with string prepended to input before printed
+3.)		-	got overwrite to winfunc, with string prepended to input before printed that does not align to new stack spot
+4.)		-	GOT Overwrite to winfunc, PIE enabled, PIE Infoleak provided
+5.)		-	GOT Overwrite to libc system w Libc Infoleak provided
+6.)		-	GOT overwrite to imported system
+7.)		-	GOT overwrite to imported system, PIE enabled, PIE Infoleak provided
+8.)		-	Return Address overwrite to winFunc, stack infoleak provided, in sub function
+9.)		-	Return Address overwrite to shellcode on the stack, stack infoleak provided, NX disabled, in sub function
+10.)	-	Got overwrite to shellcode on the stack, stack infoleak provided, in sub function
+11.)	-	for x86, Return Address overwrite to winFunc (9 but from main), stack infoleak provided, in sub function, for x64 got overwrite to onegadget
+12.)	-	for x86, Got overwrite to shellcode on the stack, stack infoleak provided (10 but from main), stack infoleak provided, for x64 got overwrite to onegadget (11 but puts instead of fflush)	
+13.)	-	Got overwrite to shellcode on the stack, stack infoleak provided (10 from main, x64 and x86 both)
+14.)	-	got overwrite to WinFunc, for x86 the size of your payload is small enough that it only allows for 2 writes, for x64 the got address you're writing to has already been resolved and must have some of the higher bytes zeroed out, multiple false winFuncs both
+15.)	-	got overwrite to WinFunc, PIE enabled, PIE Infoleak provided, for x86 the size of your payload is small enough that it only allows for 2 writes, for x64 the got address you're writing to has already been resolved and must have some of the higher bytes zeroed out, multiple false winFuncs both
+16.)	-	got overwrite to system, for x86 the size of your payload is small enough that it only allows for 2 writes
+17.)	-	got overwrite to system, PIE enabled, PIE Infoleak provided, for x86 the size of your payload is small enough that it only allows for 2 writes
+18.)	-	return address overwrite to stack shellcode, stack infoleak provided, nx disabled,  for x86 the size of your payload is small enough that it only allows for 2 writes
+19.)	-	return address overwrite to winFunc, stack infoleak provided, nx disabled,  for x86 the size of your payload is small enough that it only allows for 2 writes	
+20.)	-	got overwrite to stack shellcode, stack infoleak provided, nx disabled,  for x86 the size of your payload is small enough that it only allows for 2 writes	 
+21.)	-	GOT Overwrite to libc system w Libc Infoleak provided, for x86 the size of your payload is small enough that it only allows for 2 writes
