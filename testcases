@@ -267,3 +267,4 @@ mitigations: SNX
 19.)	-	return address overwrite to winFunc, stack infoleak provided, nx disabled,  for x86 the size of your payload is small enough that it only allows for 2 writes	
 20.)	-	got overwrite to stack shellcode, stack infoleak provided, nx disabled,  for x86 the size of your payload is small enough that it only allows for 2 writes	 
 21.)	-	GOT Overwrite to libc system w Libc Infoleak provided, for x86 the size of your payload is small enough that it only allows for 2 writes
+22.)	-	Got overwrite to shellcode, NX Disabled, leverage fmt string to do got overwrite for infinite loop, then use fmt string to get stack infoleak from saved base ptr in sub function
