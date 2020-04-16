@@ -1,12 +1,12 @@
 target:		100 / 100
 
-current:	48 / 100
+current:	55 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
 
 hackucf_stack0pt1
 
-08/10
+09/10
 
 0-bof_var:
 
@@ -18,6 +18,7 @@ protostar_stack1			pwned
 MattE_bof1					pwned
 MattE_bof2					pwned
 tamu20_bbpwn				pwned
+umbc20_onlockdown			pwned
 
 tamu19_pwn1		
 tw17_justdoit				(saving for later)
@@ -57,7 +58,7 @@ angstrumctf_overflow2		(argc)
 angstrumctf_overflow3		(argc)
 
 
-05/10
+06/10
 
 2-bof_shellcode
 
@@ -66,6 +67,8 @@ tu18_shellaeasy				pwned
 hackucf_superstack			pwned
 esecurity18_pwn01			pwned
 csaw17_pilot				pwned
+tu19_shellme32				pwned
+tu19_shellme64
 
 02/10
 
@@ -113,13 +116,14 @@ pico19_handy-shellcode		pwned
 tctf_turtlesh3lls			pwned
 tctf_turtlesh3lls-3			pwned
 
-00/10
+04/15
 
 7	-	FormatString
 
 encrypt19_pwn4				pwned
 protostar_fmt4				pwned
 backdoor17_bbpwn			pwned
+angstrum16_format1			pwned
 
 04/05
 
@@ -269,3 +273,7 @@ mitigations: SNX
 21.)	-	GOT Overwrite to libc system w Libc Infoleak provided, for x86 the size of your payload is small enough that it only allows for 2 writes
 22.)	-	Got overwrite to shellcode, NX Disabled, leverage fmt string to do got overwrite for infinite loop, then use fmt string to get stack infoleak from saved base ptr in sub function
 23.)	-	Target with looped input to fmt string, PIE enabled, leverage format string for PIE infoleak, then got overwrite to winfunc
+24.)	-	Target with looped input to fmt string, libc provided, leverage format stirng for libc infoleak, that got overwrite printf to system
+25.)	-	got overwrite to get infinite loop, leverage fmt string to get libc infoleak from previous arguments(x64 registers, x86 stack), overwrite got entry of printf to system
+26.)	-	got overwrite to shellcode, leverage fmt string to get stack infoleak from previous arguments(x64 registers, x86 stack), leverage fmt string got overwrite to get infinite loop, saved base and return address overwritten to force the infoleak method
+27.)	-	
