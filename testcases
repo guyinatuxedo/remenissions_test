@@ -6,7 +6,7 @@ current:	59 / 100
 
 hackucf_stack0pt1
 
-09/10
+09/20
 
 0-bof_var:
 
@@ -26,7 +26,7 @@ tw17_justdoit				(saving for later)
 angstrumctf16_overflow1
 
 
-21/10
+21/20
 
 1-bof_func
 
@@ -59,7 +59,7 @@ angstrumctf_overflow2		(argc)
 angstrumctf_overflow3		(argc)
 
 
-09/10
+09/15
 
 2-bof_shellcode
 
@@ -75,7 +75,7 @@ bsidessf_easyshell64		pwned
 
 tu19_shellme64
 
-02/10
+02/05
 
 
 3 - indirect_call
@@ -86,13 +86,15 @@ pico17_shells
 
 These two sections are for later
 
+00/05
+
 4-bof_static
 
 bkp16_simplecalc
 dcquals16_feedme
 dcquals19_speedrun1
 
-09/10
+09/15
 
 5 - ret2libc
 
