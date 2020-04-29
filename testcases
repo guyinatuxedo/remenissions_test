@@ -1,12 +1,12 @@
 target:		100 / 100
 
-current:	59 / 100
+current:	72 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
 
 hackucf_stack0pt1
 
-09/20
+17/20
 
 0-bof_var:
 
@@ -19,14 +19,21 @@ MattE_bof1					pwned
 MattE_bof2					pwned
 tamu20_bbpwn				pwned
 dawg20_onlockdown			pwned
-
+cuctf19_bof1				pwned
+inctf17_overflow1			pwned
+icectf15_overflow1			pwned
+easyctf15-buffering			pwned
+auburn20-turkey				pwned
+hackcon19_babybof			pwned
+hackcon18_warchange			pwned
+tamu17_pwn1					pwned
 
 tamu19_pwn1		
 tw17_justdoit				(saving for later)
 angstrumctf16_overflow1
 
 
-21/20
+26/20
 
 1-bof_func
 
@@ -51,6 +58,11 @@ HSCTF19_returntosender		pwned
 redpwnctf19_hardmode		pwned
 angstrum20_no-canary		pwned
 247ctf_hidden 				pwned
+hackcon18_bof				pwned
+tamu17_pwn2					pwned
+tamu17_pwn4					pwned
+tamu18_pwn1					pwned
+tamu18_pwn2					pwned
 hackucf_stack0pt1			(dynamic flag finding thing)
 tamu19_pwn4
 tu17_vulnchat	
@@ -72,6 +84,7 @@ csaw17_pilot				pwned
 tu19_shellme32				pwned
 bsidessf_easyshell			pwned
 bsidessf_easyshell64		pwned
+hackcon18-seashells
 
 tu19_shellme64
 
@@ -110,6 +123,7 @@ xmas19_sn0wverflow			pwned
 hs19_storytime	 (write leak)
 hs19_combo-chain (printf leak)
 
+https://ctftime.org/writeup/12022
 
 dcquals19_speedrun002
 
@@ -132,6 +146,7 @@ encrypt19_pwn4				pwned
 protostar_fmt4				pwned
 backdoor17_bbpwn			pwned
 angstrum16_format1			pwned
+tamu17_pwn3
 
 04/05
 
