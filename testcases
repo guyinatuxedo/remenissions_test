@@ -6,7 +6,7 @@ current:	72 / 100
 
 hackucf_stack0pt1
 
-17/20
+17
 
 0-bof_var:
 
@@ -33,7 +33,7 @@ tw17_justdoit				(saving for later)
 angstrumctf16_overflow1
 
 
-26/20
+26
 
 1-bof_func
 
@@ -185,19 +185,20 @@ no mitigations
 
 mitgations:	PIE, Stack Canary, RELRO, NX
 0.) Overflow Vars
-1	-	Basic Test
-1	-	Basic Test w no mitigations
-1	-	Overwrite  Three Vars, two equal, one not equal
-1	-	Overwrite Var, with var past where you can write
-1	- 	Overwrtite six vars, one equal, one not equal, one less than, one greater 
+00	-	Basic Test
+01	-	Basic Test w no mitigations
+02	-	Overwrite  Three Vars, two equal, one not equal
+03	-	Overwrite Var, with one var past where you can write, one within your reach
+04	- 	Overwrtite six vars, one equal, one not equal, one less than, one greater 
 than, one less than or equal to, one greater than or equal to
-1	-	^ that one, but no mitigations	
-1	-	Repeated Cmps against single variable
-1	-	More Repeated Cmps against single variable
-1	-	Nested cmps
-
-	-	multiple inputs not tied to a bug, but are critical
-	-	argv
+05	-	^ that one, but no mitigations	
+06	-	Repeated Cmps against single variable 
+07	-	More Repeated Cmps against single variable
+08	-	Nested cmps
+09	-	Basic test with strcpy (argv input)
+10	-	Basic test with fread
+11	-	Basic test with fscanf
+12	-	Basic test with strncpy (argv input)
 
 mitgations:	RELRO, NX, PIE
 1.) Call Func
