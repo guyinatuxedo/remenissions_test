@@ -73,7 +73,7 @@ if __name__ == "__main__":
 		if len(i) == 3:
 			files = i[2]
 			for file in files:
-				if "noop" in i[0]:
+				if "remenissions-work" in i[0]:
 					continue
 				if "chall-test" in file:
 					#print(files)

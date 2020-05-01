@@ -1,12 +1,12 @@
 target:		100 / 100
 
-current:	72 / 100
+current:	71 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
 
 hackucf_stack0pt1
 
-17
+18
 
 0-bof_var:
 
@@ -27,13 +27,12 @@ auburn20-turkey				pwned
 hackcon19_babybof			pwned
 hackcon18_warchange			pwned
 tamu17_pwn1					pwned
-
-tamu19_pwn1		
-tw17_justdoit				(saving for later)
-angstrumctf16_overflow1
+angstrumctf16_overflow1		pwned
 
 
-26
+
+
+24
 
 1-bof_func
 
@@ -48,7 +47,6 @@ easyctfiv-rop1				pwned
 sunshine19-ret2				pwned
 nctf19_babypwn				pwned
 nctf19_oneshot-onekill		pwned
-Matte_bof3					pwned
 tu16-bbys-first-elf			pwned
 tu19_thefirst				pwned
 pico18_bof1					pwned
@@ -63,12 +61,6 @@ tamu17_pwn2					pwned
 tamu17_pwn4					pwned
 tamu18_pwn1					pwned
 tamu18_pwn2					pwned
-hackucf_stack0pt1			(dynamic flag finding thing)
-tamu19_pwn4
-tu17_vulnchat	
-tu18-shella-hard
-angstrumctf_overflow2		(argc)
-angstrumctf_overflow3		(argc)
 
 
 09/15
@@ -183,7 +175,6 @@ x64
 mitgations
 no mitigations
 
-mitgations:	PIE, Stack Canary, RELRO, NX
 0.) Overflow Vars
 00	-	Basic Test
 01	-	Basic Test w no mitigations
@@ -200,25 +191,26 @@ than, one less than or equal to, one greater than or equal to
 11	-	Basic test with fscanf
 12	-	Basic test with strncpy (argv input)
 
-mitgations:	RELRO, NX, PIE
+
 1.) Call Func
 
-1	-	Basic Test
-1 	-	Basic Test no mitigations
-1	-	Basic Test of Import System
-1	-	Overflow with one var, call func
-1	-	Overflow with three vars, call func
-1	-	Baic test with multiple win funcs
-1	-	Baic test with multiple false win funcs, one win func
-1	-	Basic Test w pie infoleak
-1	-	Basic Test of Import System w pie infoleak (x86 no pie)
-1	-	Overflow with one var, call func w pie infoleak
-1	-	Overflow with three vars, call func w pie infoleak (x64 only)
-1	-	Baic test with multiple false win funcs, one win func w pie infoleak
+00	-	Basic Test
+01 	-	Basic Test no mitigations
+02	-	Basic Test of Import System
+03	-	Overflow with one var, call func
+04	-	Overflow with three vars, call func
+05	-	Baic test with multiple win funcs
+06	-	Baic test with multiple false win funcs, one win func
+
+07	-	Basic Test w pie infoleak
+08	-	Basic Test of Import System w pie infoleak (x64 only)
+09	-	Overflow with one var, call func w pie infoleak
+10	-	Overflow with three vars, call func w pie infoleak (x64 only)
+11	-	Baic test with multiple false win funcs, one win func w pie infoleak
+12	-	Basic Test with argv input
 
 
-	-	multiple inputs not tied to a bug, but are critical
-	-	argv
+
 
 mitgations:	RELRO, PIE
 2.) Call Shellcode
