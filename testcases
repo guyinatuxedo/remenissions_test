@@ -32,7 +32,7 @@ angstrumctf16_overflow1		pwned
 
 
 
-24
+27
 
 1-bof_func
 
@@ -61,9 +61,11 @@ tamu17_pwn2					pwned
 tamu17_pwn4					pwned
 tamu18_pwn1					pwned
 tamu18_pwn2					pwned
+icectf16_smashing-proft		pwned
+pico13_rop1					pwned
+pico13_rop2					pwned
 
-
-09/15
+12/15
 
 2-bof_shellcode
 
@@ -74,8 +76,7 @@ hackucf_superstack			pwned
 esecurity18_pwn01			pwned
 csaw17_pilot				pwned
 tu19_shellme32				pwned
-bsidessf_easyshell			pwned
-bsidessf_easyshell64		pwned
+
 hackcon18-seashells
 
 tu19_shellme64
@@ -129,6 +130,9 @@ pico19_handy-shellcode		pwned
 tctf_turtlesh3lls			pwned
 tctf_turtlesh3lls-3			pwned
 bsidessf18_runit			pwned
+bsidessf_easyshell			
+bsidessf_easyshell64		
+https://github.com/Caesurus/CTF_Writeups/blob/af2d0802e5ae1aebe1fe6daad26e5f10c21ce133/2019-PicoCTF/exploits/exploit_slippery.py
 
 04/15
 
@@ -139,7 +143,8 @@ protostar_fmt4				pwned
 backdoor17_bbpwn			pwned
 angstrum16_format1			pwned
 tamu17_pwn3
-
+https://ctftime.org/writeup/14314
+https://ctftime.org/task/8189
 04/05
 
 8	-	Remote Libc ID
@@ -164,6 +169,9 @@ fireshell19_leakless
 encrypt19_pwn2
 encrypt19_pwn3
 xmas19_sn0wverflow
+
+
+https://ctftime.org/writeup/14404
 
 
 Unit Testing
