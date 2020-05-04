@@ -1,6 +1,6 @@
 target:		100 / 100
 
-current:	71 / 100
+current:	77 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
 
@@ -69,17 +69,19 @@ pico13_rop2					pwned
 
 2-bof_shellcode
 
-tamu19_pwn3 				pwned
-tamu18_pwn3	(not replica of tamu19_pwn3)				pwned
-tu18_shellaeasy				pwned
-hackucf_superstack			pwned
-esecurity18_pwn01			pwned
-csaw17_pilot				pwned
+bsidesvc15_sushi			pwned
+hackcon18_seashells			pwned
+tamu18_pwn3					pwned
 tu19_shellme32				pwned
+csaw17_pilot				pwned
+hackucf_superstack			pwned
+tamu19_pwn3					pwned
+tu19_shellme64				pwned
+esecurity18_pwn01			pwned
+sniperoj_pwn100				pwned
+tu18_shellaeasy				pwned
+umdctf20_easy-right			pwned
 
-hackcon18-seashells
-
-tu19_shellme64
 
 02/05
 
@@ -222,22 +224,18 @@ than, one less than or equal to, one greater than or equal to
 
 mitgations:	RELRO, PIE
 2.) Call Shellcode
-1	- 	Basic Test
-1	-	Basic Test no mitigations
-1	-	Basic test with scanf
-1	-	Basic test, infoleak points to start of input plus offset
-1	-	Have to place shellcode ahead of stack variable
-1	- 	Have to place shellcode between two stack variables
-1 	- 	Have to place shellcode between two stack variables, no mitigations
-1	-	Have to place shellcode after return address
-1	-	Have to place shellcode in place of variables with cmps against them (cmps not critical)
-1	-	Pie Infoleak and libc
-1	-	Multiple pie / libc infoleaks
+00	- 	Basic Test
+01	-	Basic Test no mitigations
+02	-	Basic test with scanf
+03	-	Basic test, infoleak points to start of input plus offset
+04	-	Have to place shellcode ahead of stack variable
+05	- 	Have to place shellcode between two stack variables
+06	- 	Have to place shellcode between two stack variables, no mitigations
+07	-	Have to place shellcode after return address, infoleak points to start of input plus offset
+08	-	Have to place shellcode in place of variables with cmps against them (cmps not critical)
+09	-	Pie Infoleak and libc
+10	-	Multiple infoleaks, with pie / stack
 
-	-	dynamic analyzer, stack infoleak from different function
-
-	-	multiple inputs not tied to a bug, but are critical
-	-	argv
 
 
 mitigations: SNX
