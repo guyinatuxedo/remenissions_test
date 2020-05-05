@@ -42,7 +42,6 @@ hackucf_ret					pwned
 protostar_stack4			pwned
 utc_pwn2					pwned
 pico19_overflow0			pwned
-tu19_thefirst				pwned
 easyctfiv-rop1				pwned
 sunshine19-ret2				pwned
 nctf19_babypwn				pwned
@@ -83,14 +82,14 @@ tu18_shellaeasy				pwned
 umdctf20_easy-right			pwned
 
 
-02/05
+03/05
 
 
 3 - indirect_call
 
 protostar_stack3			pwned
 hackucf_bof3				pwned
-pico17_shells
+Matte_bof3					pwned
 
 These two sections are for later
 
@@ -121,7 +120,7 @@ hs19_combo-chain (printf leak)
 https://ctftime.org/writeup/12022
 
 dcquals19_speedrun002
-
+https://github.com/C-Brown/CTFs/blob/master/WPICTF2020/pwn/dorsia1.md
 
 05/05
 
@@ -147,6 +146,8 @@ angstrum16_format1			pwned
 tamu17_pwn3
 https://ctftime.org/writeup/14314
 https://ctftime.org/task/8189
+https://github.com/C-Brown/CTFs/blob/master/WPICTF2020/pwn/dorsia3.md
+
 04/05
 
 8	-	Remote Libc ID
@@ -240,20 +241,20 @@ mitgations:	RELRO, PIE
 
 mitigations: SNX
 3.) Call Indirect
-1	-	Basic test
-1	-	Basic test w libc infoleak, pie enabled
-1	-	Basic test w pie inofleak, pie enabled (x64 only)
-1	-	Indirect ptr on stack is compared
-1	-	cmp to get to indirect ptr
-1	-	Mutliple indirect ptrs
-1	-	Multiple indirect ptrs, compares to get to them, and cmps against indirect ptrs
-1	-	multiple false win funcs, one real win func
+00	-	Basic test, overwrite indirect pointer to winfunc
+01	-	Basic test no mitigations
+02	-	Basic test w pie inofleak, pie enabled
+03	-	Basic test w libc infoleak, pie enabled (x64 only)
+04	-	Indirect ptr on stack is compared
+05	-	cmp to get to indirect ptr
+06	-	Mutliple indirect ptrs
+07	-	Multiple indirect ptrs, compares to get to them, and cmps against indirect ptrs
+08	-	multiple false win funcs, one real win func
+09	-	Overwrite ptr to shellcode on the stack
 
+fix libc stuff
 
-	-	multiple inputs not tied to a bug, but are critical
-	-	argv input
-	-	pie printf infoleak
-	-	libc printf infoleak
+10	-	input
 
 4.)
 
