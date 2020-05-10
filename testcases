@@ -1,6 +1,6 @@
 target:		100 / 100
 
-current:	77 / 100
+current:	79 / 100
 
 # More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
 
@@ -32,7 +32,7 @@ angstrumctf16_overflow1		pwned
 
 
 
-27
+28
 
 1-bof_func
 
@@ -63,6 +63,7 @@ tamu18_pwn2					pwned
 icectf16_smashing-proft		pwned
 pico13_rop1					pwned
 pico13_rop2					pwned
+sharky20_giveme0			pwned
 
 12/15
 
@@ -116,6 +117,8 @@ encrypt19_pwn2				pwned
 xmas19_sn0wverflow			pwned
 hs19_storytime	 (write leak)
 hs19_combo-chain (printf leak)
+sharky ctfs givemes
+
 
 https://ctftime.org/writeup/12022
 
