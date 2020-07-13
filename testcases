@@ -1,10 +1,4 @@
-target:		100 / 100
 
-current:	79 / 100
-
-# More challs: https://tcode2k16.github.io/blog/posts/picoctf-2019-writeup/binary-exploitation/#problem
-
-hackucf_stack0pt1
 
 18
 
@@ -30,42 +24,50 @@ tamu17_pwn1					pwned
 angstrumctf16_overflow1		pwned
 
 
-
-
-28
+37
 
 1-bof_func
 
-csaw16_warmup 				pwned
-csaw18_getit 				pwned
-hackucf_ret					pwned
-protostar_stack4			pwned
-utc_pwn2					pwned
-pico19_overflow0			pwned
-easyctfiv-rop1				pwned
-sunshine19-ret2				pwned
-nctf19_babypwn				pwned
-nctf19_oneshot-onekill		pwned
-tu16-bbys-first-elf			pwned
-tu19_thefirst				pwned
-pico18_bof1					pwned
-encrypt19_pwn0				pwned
-encrypt19_pwn1				pwned
-HSCTF19_returntosender		pwned
-redpwnctf19_hardmode		pwned
-angstrum20_no-canary		pwned
-247ctf_hidden 				pwned
-hackcon18_bof				pwned
-tamu17_pwn2					pwned
-tamu17_pwn4					pwned
-tamu18_pwn1					pwned
-tamu18_pwn2					pwned
-icectf16_smashing-proft		pwned
-pico13_rop1					pwned
-pico13_rop2					pwned
-sharky20_giveme0			pwned
+247ctf_hidden             
+icectf16_smashing-profit  
+sharky20_giveme0
+angstrum20_no-canary      
+nctf19_babypwn            
+sunshine19-ret2mania
+castors20_abcbof          
+nctf19_oneshot-onekill    
+tamu17_pwn2
+castors20_babybof         
+newark20-bufover          
+tamu17_pwn4
+csaw16_warmup             
+pico13_rop1               
+tamu18_pwn1
+csaw18_getit              
+pico13_rop2               
+tamu18_pwn2
+easyctfiv-rop1            
+pico18_bof1               
+tjctf20_seashells
+encrypt19_pwn0            
+pico19_overflow1          
+tu16-bbys-first-elf
+encrypt19_pwn1            
+protostar_stack4          
+tu19_thefirst
+hackcon18-bof             
+redpwn19_hardmode         
+utc_pwn2
+hackcon19-q1              
+redpwn20_coffer0          
+zero_free-flag
+hackucf_ret               
+redpwn20_coffer1
+hsctf19-return-to-sender  
+redpwn20_coffer2
 
-12/15
+
+12
 
 2-bof_shellcode
 
@@ -83,7 +85,7 @@ tu18_shellaeasy				pwned
 umdctf20_easy-right			pwned
 
 
-03/05
+03
 
 
 3 - indirect_call
@@ -92,19 +94,29 @@ protostar_stack3			pwned
 hackucf_bof3				pwned
 Matte_bof3					pwned
 
-These two sections are for later
+9
 
-00/05
+04 - CallInput
 
-4-bof_static
+angstrom16_shellcode		
+bsidessf_easyshell			
+bsidessf_easyshell64	
+bsidessf18_runit			
+open16_tyro-shellcode
+pioc18_shellcode
+pico19_handy-shellcode		
+tctf_turtlesh3lls			
+tctf_turtlesh3lls-3		
 
-bkp16_simplecalc
-dcquals16_feedme
-dcquals19_speedrun1
+01
 
-09/15
+05-Ret2Static
 
-5 - ret2libc
+dcquals19_speedrun1 		pwned
+
+10
+
+06 - Ret2Libc
 
 pico18_got-2-learn-libc		pwned
 csaw19_babyboi				pwned
@@ -115,53 +127,22 @@ hs19_combo-chain-lite		pwned
 encrypt19_pwn3				pwned
 encrypt19_pwn2				pwned
 xmas19_sn0wverflow			pwned
-hs19_storytime	 (write leak)
-hs19_combo-chain (printf leak)
-sharky ctfs givemes
+redpwn20_library			pwned
 
 
-https://ctftime.org/writeup/12022
 
-dcquals19_speedrun002
-https://github.com/C-Brown/CTFs/blob/master/WPICTF2020/pwn/dorsia1.md
+4
 
-05/05
-
-6 - callInput
-
-angstrom16_shellcode		pwned
-pico19_handy-shellcode		pwned
-tctf_turtlesh3lls			pwned
-tctf_turtlesh3lls-3			pwned
-bsidessf18_runit			pwned
-bsidessf_easyshell			
-bsidessf_easyshell64		
-https://github.com/Caesurus/CTF_Writeups/blob/af2d0802e5ae1aebe1fe6daad26e5f10c21ce133/2019-PicoCTF/exploits/exploit_slippery.py
-
-04/15
-
-7	-	FormatString
-
-encrypt19_pwn4				pwned
-protostar_fmt4				pwned
-backdoor17_bbpwn			pwned
-angstrum16_format1			pwned
-tamu17_pwn3
-https://ctftime.org/writeup/14314
-https://ctftime.org/task/8189
-https://github.com/C-Brown/CTFs/blob/master/WPICTF2020/pwn/dorsia3.md
-
-04/05
-
-8	-	Remote Libc ID
+07	-	Remote Libc ID
 
 247ctf_hidden 				pwned
 247ctf_hidden-parameters	pwned
 247ctf_executable-stack 	pwned
 247ctf_non-executable-stack pwned
 
+1
 
-8	-	Local Libc ID
+07	-	Local Libc ID
 
 angstrum20_no-canary
 pico19_overflow
@@ -175,19 +156,34 @@ fireshell19_leakless
 encrypt19_pwn2
 encrypt19_pwn3
 xmas19_sn0wverflow
+redpwn19_zipline (not duplicate)	
+
+	
 
 
-https://ctftime.org/writeup/14404
+
+07
+
+08	-	FmtString
+
+angstrum16_format1			pwned
+protostar_format4
+encrypt19_pwn4				pwned
+backdoor17_bbpwn			pwned
+ractf_nra
+redpwn19_rot26
+tamu17_pwn3					pwned
+
+
+
+
+
+
 
 
 Unit Testing
 
-Challenge Entropy
 
-x86
-x64
-mitgations
-no mitigations
 
 0.) Overflow Vars
 00	-	Basic Test
@@ -215,16 +211,20 @@ than, one less than or equal to, one greater than or equal to
 04	-	Overflow with three vars, call func
 05	-	Baic test with multiple win funcs
 06	-	Baic test with multiple false win funcs, one win func
-
 07	-	Basic Test w pie infoleak
 08	-	Basic Test of Import System w pie infoleak (x64 only)
 09	-	Overflow with one var, call func w pie infoleak
 10	-	Overflow with three vars, call func w pie infoleak (x64 only)
 11	-	Baic test with multiple false win funcs, one win func w pie infoleak
 12	-	Basic Test with argv input
+13	-	Test correct bofFunc, multiple stack variable checks
+14	-	Test correct bofFuncWInfoleak, multiple stack variable checks
+15	-	Test correct bofSystem, multiple stack variable checks
+16	-	Test correct bofSystemWInfoleak, multiple stack variable checks
 
-
-
+force bof system correction
+bof func argv
+bofFunc correction
 
 mitgations:	RELRO, PIE
 2.) Call Shellcode
@@ -286,8 +286,6 @@ fix libc stuff
 8.)		-	Return Address overwrite to winFunc, stack infoleak provided, in sub function
 9.)		-	Return Address overwrite to shellcode on the stack, stack infoleak provided, NX disabled, in sub function
 10.)	-	Got overwrite to shellcode on the stack, stack infoleak provided, in sub function
-11.)	-	for x86, Return Address overwrite to winFunc (9 but from main), stack infoleak provided, in sub function, for x64 got overwrite to onegadget
-12.)	-	for x86, Got overwrite to shellcode on the stack, stack infoleak provided (10 but from main), stack infoleak provided, for x64 got overwrite to onegadget (11 but puts instead of fflush)	
 13.)	-	Got overwrite to shellcode on the stack, stack infoleak provided (10 from main, x64 and x86 both)
 14.)	-	got overwrite to WinFunc, for x86 the size of your payload is small enough that it only allows for 2 writes, for x64 the got address you're writing to has already been resolved and must have some of the higher bytes zeroed out, multiple false winFuncs both
 15.)	-	got overwrite to WinFunc, PIE enabled, PIE Infoleak provided, for x86 the size of your payload is small enough that it only allows for 2 writes, for x64 the got address you're writing to has already been resolved and must have some of the higher bytes zeroed out, multiple false winFuncs both
@@ -297,9 +295,55 @@ fix libc stuff
 19.)	-	return address overwrite to winFunc, stack infoleak provided, nx disabled,  for x86 the size of your payload is small enough that it only allows for 2 writes	
 20.)	-	got overwrite to stack shellcode, stack infoleak provided, nx disabled,  for x86 the size of your payload is small enough that it only allows for 2 writes	 
 21.)	-	GOT Overwrite to libc system w Libc Infoleak provided, for x86 the size of your payload is small enough that it only allows for 2 writes
+
+
+
 22.)	-	Got overwrite to shellcode, NX Disabled, leverage fmt string to do got overwrite for infinite loop, then use fmt string to get stack infoleak from saved base ptr in sub function
 23.)	-	Target with looped input to fmt string, PIE enabled, leverage format string for PIE infoleak, then got overwrite to winfunc
 24.)	-	Target with looped input to fmt string, libc provided, leverage format stirng for libc infoleak, that got overwrite printf to system
 25.)	-	got overwrite to get infinite loop, leverage fmt string to get libc infoleak from previous arguments(x64 registers, x86 stack), overwrite got entry of printf to system
 26.)	-	got overwrite to shellcode, leverage fmt string to get stack infoleak from previous arguments(x64 registers, x86 stack), leverage fmt string got overwrite to get infinite loop, saved base and return address overwritten to force the infoleak method
 27.)	-	
+
+later:
+11.)	-	for x86, Return Address overwrite to winFunc (9 but from main), libc infoleak provided, in sub function, for x64 got overwrite to onegadget
+12.)	-	for x86, Got overwrite to shellcode on the stack, stack infoleak provided (10 but from main), stack infoleak provided, for x64 got overwrite to onegadget (11 but puts instead of fflush)	
+
+
+
+Scott shenaninans
+
+sharky
+	-	giveaway0	added
+
+redpwn20
+	-	coffer_overflow-0 added
+	-	coffer_overflow-1 added
+	-	coffer_overflow-2 added
+	-	the-library with libc.so.6 (desktop) added
+
+redpwn19
+	-	rot26	added
+	-	zipline (localLibcId) added
+
+castorsctf20
+	-	abcbof added
+	-	babybof added
+
+ractf
+	-	nra added
+
+zero
+	-	free flag added
+
+hackcon19
+	-	q1 added
+
+Newark Academy 2019
+	-	Buffer Overflow #1 added
+
+openctf16
+	-	tyro_shellcode added
+
+tjctf
+	-	seashells added 
