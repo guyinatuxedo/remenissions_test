@@ -286,6 +286,8 @@ fix libc stuff
 8.)		-	Return Address overwrite to winFunc, stack infoleak provided, in sub function
 9.)		-	Return Address overwrite to shellcode on the stack, stack infoleak provided, NX disabled, in sub function
 10.)	-	Got overwrite to shellcode on the stack, stack infoleak provided, in sub function
+11.)	-	for x86, Return Address overwrite to winFunc (9 but from main), libc infoleak provided, in sub function, for x64 got overwrite to onegadget
+12.)	-	for x86, Got overwrite to shellcode on the stack, stack infoleak provided (10 but from main), stack infoleak provided, for x64 got overwrite to onegadget (11 but puts instead of fflush)	
 13.)	-	Got overwrite to shellcode on the stack, stack infoleak provided (10 from main, x64 and x86 both)
 14.)	-	got overwrite to WinFunc, for x86 the size of your payload is small enough that it only allows for 2 writes, for x64 the got address you're writing to has already been resolved and must have some of the higher bytes zeroed out, multiple false winFuncs both
 15.)	-	got overwrite to WinFunc, PIE enabled, PIE Infoleak provided, for x86 the size of your payload is small enough that it only allows for 2 writes, for x64 the got address you're writing to has already been resolved and must have some of the higher bytes zeroed out, multiple false winFuncs both
@@ -295,55 +297,8 @@ fix libc stuff
 19.)	-	return address overwrite to winFunc, stack infoleak provided, nx disabled,  for x86 the size of your payload is small enough that it only allows for 2 writes	
 20.)	-	got overwrite to stack shellcode, stack infoleak provided, nx disabled,  for x86 the size of your payload is small enough that it only allows for 2 writes	 
 21.)	-	GOT Overwrite to libc system w Libc Infoleak provided, for x86 the size of your payload is small enough that it only allows for 2 writes
-
-
-
 22.)	-	Got overwrite to shellcode, NX Disabled, leverage fmt string to do got overwrite for infinite loop, then use fmt string to get stack infoleak from saved base ptr in sub function
 23.)	-	Target with looped input to fmt string, PIE enabled, leverage format string for PIE infoleak, then got overwrite to winfunc
 24.)	-	Target with looped input to fmt string, libc provided, leverage format stirng for libc infoleak, that got overwrite printf to system
-25.)	-	got overwrite to get infinite loop, leverage fmt string to get libc infoleak from previous arguments(x64 registers, x86 stack), overwrite got entry of printf to system
-26.)	-	got overwrite to shellcode, leverage fmt string to get stack infoleak from previous arguments(x64 registers, x86 stack), leverage fmt string got overwrite to get infinite loop, saved base and return address overwritten to force the infoleak method
-27.)	-	
-
-later:
-11.)	-	for x86, Return Address overwrite to winFunc (9 but from main), libc infoleak provided, in sub function, for x64 got overwrite to onegadget
-12.)	-	for x86, Got overwrite to shellcode on the stack, stack infoleak provided (10 but from main), stack infoleak provided, for x64 got overwrite to onegadget (11 but puts instead of fflush)	
 
 
-
-Scott shenaninans
-
-sharky
-	-	giveaway0	added
-
-redpwn20
-	-	coffer_overflow-0 added
-	-	coffer_overflow-1 added
-	-	coffer_overflow-2 added
-	-	the-library with libc.so.6 (desktop) added
-
-redpwn19
-	-	rot26	added
-	-	zipline (localLibcId) added
-
-castorsctf20
-	-	abcbof added
-	-	babybof added
-
-ractf
-	-	nra added
-
-zero
-	-	free flag added
-
-hackcon19
-	-	q1 added
-
-Newark Academy 2019
-	-	Buffer Overflow #1 added
-
-openctf16
-	-	tyro_shellcode added
-
-tjctf
-	-	seashells added 

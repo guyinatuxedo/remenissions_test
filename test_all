@@ -66,6 +66,7 @@ if __name__ == "__main__":
 
 	testFiles = []
 	fileNames = []
+	correction_files = []
 
 	additionalFiles = {}
 
@@ -98,9 +99,23 @@ if __name__ == "__main__":
 						print(getDirectory(testFiles, fileName))
 						print(fileDir)
 						sys.exit()
+				elif "Correction" in file:
+					#correction_files.append(file)
+					fileName = file
+					fileDir  = i[0]
+					if fileName not in fileNames:
+						libc = getLibc(files)
+					if libc == None:
+						correction_files.append([fileName, fileDir])
+					else:
+						correction_files.append([fileName, fileDir, libc])	
+
+	print("yo: %s" % str(correction_files))
 
 	pwnedTests = []
 	failedTests = []
+	pwnedCorrectionTests = []
+	failedCorrectionTests = []
 
 	categories = getCategories(testFiles)
 	passedTestcases = getDict(categories)
@@ -134,6 +149,42 @@ if __name__ == "__main__":
 		else:
 			failedTests.append([currentFile, currentDirectory])
 			#print("Not Successful Test\nFileName: %s\nDirectory %s\n" % (currentFile, currentDirectory))
+
+	for test in correction_files:
+		currentFile = test[0]
+		currentDirectory = test[1]
+		exploit_method = currentFile.split("Correction-")[1].split("-x")[0]
+		print("\n\nTesting: %s\nFrom: %s\nUsing Method: %s\n" % (currentFile, currentDirectory, exploit_method))
+		#sys.exit(0)
+		os.chdir(currentDirectory)
+		if len(test) == 2:
+			print('remenissions -b %s -d Correction-%s' % (currentFile, exploit_method))
+			#sys.exit(0)
+			#if (currentFile in additionalFiles.keys()):
+			#	output = os.popen('remenissions -b %s -a %s' % (currentFile, additionalFiles[currentFile])).read()
+			#elif "localLibcId" in currentFile:
+				#output = os.popen('remenissions -b %s -d localLibcId' % (currentFile)).read()
+			#else:
+			output = os.popen('remenissions -b %s -d Correction-%s' % (currentFile, exploit_method)).read()
+
+		elif len(test) == 3:
+			libcFile = test[2]
+			print("libc file is: %s" % libcFile)
+			#if (currentFile in additionalFiles.keys()):
+			#	output = os.popen('remenissions -b %s -l %s -a %s' % (currentFile, libcFile, additionalFiles[currentFile])).read()	
+			#else:
+			output = os.popen('remenissions -b %s -l %s -d Correction-%s' % (currentFile, libcFile, exploit_method)).read()			
+		if "Exploit Successful:" in output:
+			#print("\n\nSuccessful Test\nFileName: %s\nDirectory %s\n" % (currentFile, currentDirectory))
+			pwnedCorrectionTests.append(currentFile)
+		else:
+			failedCorrectionTests.append(currentFile)
+
+	if correction_files != []:
+		print("\n\nCorrection Succeeded: %d\n\n" % len(pwnedCorrectionTests))
+		print(pwnedCorrectionTests)
+		print("\n\nCorrection Failed: %d\n\n" % len(failedCorrectionTests))
+		print(failedCorrectionTests)
 
 	for pwnedTest in pwnedTests:
 		category = getCategory(pwnedTest)
