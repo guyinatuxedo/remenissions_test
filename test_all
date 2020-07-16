@@ -2,6 +2,7 @@
 
 import os
 import sys
+import signal
 import argparse
 
 def getDirectory(files, fileName):
@@ -41,6 +42,18 @@ def getDict(categories):
 		testcases[category] = []
 	return testcases
 
+def run_testcase(cmd):
+	output = ""
+	def handler(signum, frame):
+		raise Exception("Timed out")
+
+	signal.signal(signal.SIGALRM, handler)
+	signal.alarm(200)
+	try:
+		output = os.popen(cmd).read()
+	except Exception:
+		print("time out")
+	return output
 
 def printTestcases(testCases):
 #print("\nSuccessful Exploit\nTarget: %s\nDirectory: %s\n" % (pwnedTest[0], pwnedTest[1]))
@@ -153,29 +166,23 @@ if __name__ == "__main__":
 	for test in correction_files:
 		currentFile = test[0]
 		currentDirectory = test[1]
+		print("My fear is: %s" % str(currentFile))
 		exploit_method = currentFile.split("Correction-")[1].split("-x")[0]
 		print("\n\nTesting: %s\nFrom: %s\nUsing Method: %s\n" % (currentFile, currentDirectory, exploit_method))
 		#sys.exit(0)
 		os.chdir(currentDirectory)
 		if len(test) == 2:
 			print('remenissions -b %s -d Correction-%s' % (currentFile, exploit_method))
-			#sys.exit(0)
-			#if (currentFile in additionalFiles.keys()):
-			#	output = os.popen('remenissions -b %s -a %s' % (currentFile, additionalFiles[currentFile])).read()
-			#elif "localLibcId" in currentFile:
-				#output = os.popen('remenissions -b %s -d localLibcId' % (currentFile)).read()
-			#else:
-			output = os.popen('remenissions -b %s -d Correction-%s' % (currentFile, exploit_method)).read()
+			cmd = 'remenissions -b %s -d Correction-%s' % (currentFile, exploit_method)
+			output = run_testcase(cmd)
 
 		elif len(test) == 3:
 			libcFile = test[2]
 			print("libc file is: %s" % libcFile)
-			#if (currentFile in additionalFiles.keys()):
-			#	output = os.popen('remenissions -b %s -l %s -a %s' % (currentFile, libcFile, additionalFiles[currentFile])).read()	
-			#else:
-			output = os.popen('remenissions -b %s -l %s -d Correction-%s' % (currentFile, libcFile, exploit_method)).read()			
+			cmd = 'remenissions -b %s -l %s -d Correction-%s' % (currentFile, libcFile, exploit_method)
+			output = run_testcase(cmd)		
+
 		if "Exploit Successful:" in output:
-			#print("\n\nSuccessful Test\nFileName: %s\nDirectory %s\n" % (currentFile, currentDirectory))
 			pwnedCorrectionTests.append(currentFile)
 		else:
 			failedCorrectionTests.append(currentFile)

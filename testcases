@@ -180,8 +180,8 @@ tamu17_pwn3					pwned
 Correction
 
 00	-	FsGotWinFunc
-01	-	
-02	-	
+01	-	FsGotWinFuncPie
+02	-	FsGotWinFuncPieFsleak
 
 Unit Testing
 
@@ -304,3 +304,32 @@ fix libc stuff
 24.)	-	Target with looped input to fmt string, libc provided, leverage format stirng for libc infoleak, that got overwrite printf to system
 
 
+
+Correction
+
+00	-	FsGotWinFunc
+01	-	FsGotWinFuncPie
+02	-	FsGotWinFuncPieFsleak
+03	-	FsGotSystem
+04	-	FsGotSystemPie
+05	-	FsRetWinFunc
+06	-	FsRetShellcode
+07	-	FsGotShellcode
+08	-	FsGotShellcodeFsleak
+09	-	FsGotLibc
+10	-	FsGotLibcFsleakLoop
+11	-	FsGotOneshot
+12	-	BofVar
+13	-	BofFunc
+14	-	BofFuncWInfoleak
+15	-	BofSystem
+16	-	BofSystemWInfoleak
+17	-	BofFuncArgv
+18	-	BofShellcode
+19	-	IndrCall
+20	-	IndrCallPie
+21	-	IndrCallShellcode
+22	-	CallInput
+23	-	BofStatic
+
+['Correction-FsRetShellcode-09-x86', 'Correction-FsGotShellcodeFsleak-x86']
