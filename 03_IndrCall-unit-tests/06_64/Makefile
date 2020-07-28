@@ -1,2 +1,2 @@
-challMake: indrCall-06-x64.c
-	gcc indrCall-06-x64.c -o chall-test_indrCall-06-x64 -fno-stack-protector -no-pie
+challMake: IndrCall-06-x64.c
+	gcc IndrCall-06-x64.c -o chall-test_IndrCall-06-x64 -fno-stack-protector -no-pie

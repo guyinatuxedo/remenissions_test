@@ -1,2 +1,2 @@
-challMake: bofVar-08-x64.c
-	gcc bofVar-08-x64.c -o chall-test_bofVar-08-x64 -fno-stack-protector
+challMake: BofVar-08-x64.c
+	gcc BofVar-08-x64.c -o chall-test_BofVar-08-x64 -fno-stack-protector

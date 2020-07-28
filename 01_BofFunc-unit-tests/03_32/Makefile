@@ -1,2 +1,2 @@
-challMake: bofFunc-03-x86.c
-	gcc bofFunc-03-x86.c -o chall-test_bofFunc-03-x86 -fno-stack-protector -no-pie -m32
+challMake: BofFunc-03-x86.c
+	gcc BofFunc-03-x86.c -o chall-test_BofFunc-03-x86 -fno-stack-protector -no-pie -m32

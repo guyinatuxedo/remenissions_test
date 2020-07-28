@@ -1,2 +1,2 @@
-challMake: bofFunc-10-x64.c
-	gcc bofFunc-10-x64.c -o chall-test_bofFunc-10-x64 -fno-stack-protector
+challMake: BofFunc-10-x64.c
+	gcc BofFunc-10-x64.c -o chall-test_BofFunc-10-x64 -fno-stack-protector

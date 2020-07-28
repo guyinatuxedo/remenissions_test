@@ -15,8 +15,6 @@ def getDirectory(files, fileName):
 def getLibc(files):
 	for file in files:
 		if ("libc" in file) and ("so" in file):
-			#print("Found: %s" % file)
-			#sys.exit(0)
 			return file
 	return None
 
@@ -56,7 +54,6 @@ def run_testcase(cmd):
 	return output
 
 def printTestcases(testCases):
-#print("\nSuccessful Exploit\nTarget: %s\nDirectory: %s\n" % (pwnedTest[0], pwnedTest[1]))
 	for testCase in testCases:
 		print("\tTarget:\t%s\tDirectory:\t%s" % (testCase[0], testCase[1]))
 
@@ -90,7 +87,6 @@ if __name__ == "__main__":
 				if "remenissions-work" in i[0]:
 					continue
 				if "chall-test" in file:
-					#print(files)
 					fileName = file
 					fileDir  = i[0]
 					if fileName not in fileNames:
@@ -113,7 +109,6 @@ if __name__ == "__main__":
 						print(fileDir)
 						sys.exit()
 				elif "Correction" in file:
-					#correction_files.append(file)
 					fileName = file
 					fileDir  = i[0]
 					if fileName not in fileNames:
@@ -122,8 +117,6 @@ if __name__ == "__main__":
 						correction_files.append([fileName, fileDir])
 					else:
 						correction_files.append([fileName, fileDir, libc])	
-
-	print("yo: %s" % str(correction_files))
 
 	pwnedTests = []
 	failedTests = []
@@ -134,8 +127,6 @@ if __name__ == "__main__":
 	passedTestcases = getDict(categories)
 	failedTestcases = getDict(categories)
 
-	#print(noTempDirectoryFilenames)
-	#sys.exit(0)
 	for test in testFiles:
 		currentFile = test[0]
 		currentDirectory = test[1]
@@ -144,8 +135,8 @@ if __name__ == "__main__":
 		if len(test) == 2:
 			if (currentFile in additionalFiles.keys()):
 				output = os.popen('remenissions -b %s -a %s' % (currentFile, additionalFiles[currentFile])).read()
-			elif "localLibcId" in currentFile:
-				output = os.popen('remenissions -b %s -d localLibcId' % (currentFile)).read()
+			elif "LocalLibcId" in currentFile:
+				output = os.popen('remenissions -b %s -d LocalLibcId' % (currentFile)).read()
 			else:
 				output = os.popen('remenissions -b %s' % currentFile).read()
 
@@ -157,11 +148,9 @@ if __name__ == "__main__":
 			else:
 				output = os.popen('remenissions -b %s -l %s' % (currentFile, libcFile)).read()			
 		if "Exploit Successful:" in output:
-			#print("\n\nSuccessful Test\nFileName: %s\nDirectory %s\n" % (currentFile, currentDirectory))
 			pwnedTests.append([currentFile, currentDirectory])
 		else:
 			failedTests.append([currentFile, currentDirectory])
-			#print("Not Successful Test\nFileName: %s\nDirectory %s\n" % (currentFile, currentDirectory))
 
 	for test in correction_files:
 		currentFile = test[0]

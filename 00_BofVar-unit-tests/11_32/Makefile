@@ -1,2 +1,2 @@
-challMake: bofVar-11-x86.c
-	gcc bofVar-11-x86.c -o chall-test_bofVar-11-x86 -fno-stack-protector -m32
+challMake: BofVar-11-x86.c
+	gcc BofVar-11-x86.c -o chall-test_BofVar-11-x86 -fno-stack-protector -m32

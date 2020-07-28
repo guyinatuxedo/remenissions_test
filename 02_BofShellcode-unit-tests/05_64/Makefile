@@ -1,2 +1,2 @@
-challMake: bofShellcode-05-x64.c
-	gcc bofShellcode-05-x64.c -o chall-test_bofShellcode-05-x64 -fno-stack-protector -z execstack
+challMake: BofShellcode-05-x64.c
+	gcc BofShellcode-05-x64.c -o chall-test_BofShellcode-05-x64 -fno-stack-protector -z execstack

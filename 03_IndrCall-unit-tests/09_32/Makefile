@@ -1,2 +1,2 @@
-challMake: indrCall-09-x86.c
-	gcc indrCall-09-x86.c -o chall-test_indrCall-09-x86 -fno-stack-protector -z execstack -m32
+challMake: IndrCall-09-x86.c
+	gcc IndrCall-09-x86.c -o chall-test_IndrCall-09-x86 -fno-stack-protector -z execstack -m32
