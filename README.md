@@ -271,7 +271,14 @@ than, one less than or equal to, one greater than or equal to
 07	-	Basic Test
 ```
 
-#### 7.) Fmt String
+#### 7.) Local Libc Id
+```
+00.)	-	Basic Test
+01.)	-	Basic Test in Sub Function
+02.)	-	Basic Test with var check
+03.)	-	Basic Test
+```
+#### 8.) Fmt String
 ```
 00.)		-	got overwrite to winfunc
 01.)		-	got overwrite to winfunc, no binary mitigations
