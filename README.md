@@ -259,7 +259,7 @@ than, one less than or equal to, one greater than or equal to
 ```
 
 
-#### 5.) Return 2 Libc
+#### 6.) Return 2 Libc
 ```
 00	-	Basic Test
 01	-	Basic Test No Pie
@@ -269,15 +269,6 @@ than, one less than or equal to, one greater than or equal to
 05	-	Ret2Libc w/ puts infoleak
 06	-	Basic test with single variable cmp
 07	-	Basic Test
-```
-
-#### 6.) Return 2 Libc w/ Libc Id
-
-```
-00	-	Basic Test w/ Puts Infoleak
-01	-	Basic Test w/ Puts Infoleak
-02	-	Basic Test w/ Puts Infoleak and var overflow
-03	-	Basic Test w/ Puts Infoleak & Stack Infoleak Given
 ```
 
 #### 7.) Fmt String
