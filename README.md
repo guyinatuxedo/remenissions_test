@@ -128,6 +128,7 @@ encrypt19_pwn3
 encrypt19_pwn2				
 xmas19_sn0wverflow			
 redpwn20_library			
+csaw20_rop
 ```
 
 #### 07	-	Remote Libc ID
