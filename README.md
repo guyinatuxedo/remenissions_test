@@ -68,6 +68,8 @@ hackucf_ret
 redpwn20_coffer1
 hsctf19-return-to-sender  
 redpwn20_coffer2
+b01lers20_oracle
+cuctf20_baby-bof
 ```
 
 #### 2-bof_shellcode
